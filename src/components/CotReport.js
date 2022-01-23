@@ -1,21 +1,10 @@
-import axios from "axios";
-import { useEffect } from "react";
+import useCurrentCotReport from "../hooks/useCurrentCotReport";
 
 function CotReport() {
+  const report = useCurrentCotReport();
+  console.log("-=-=-=-=-=-=-=",report);
 
-    useEffect(() => {
-        axios.get("/dea/newcot/FinFutWk.txt")
-        .then((report) => {
-            console.log(report.data)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    },[])
-
-    return (
-        <h1>Report</h1>
-    )
+  return <h1>CoT Report</h1>;
 }
 
 export default CotReport;
