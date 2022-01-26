@@ -3,7 +3,7 @@ import getDeviation from "./getDeviation";
 export default function analyzeReport(cotReport, cotMetrics, formValues) {
   const { deviation } = formValues;
 
-  const analysisReport = {};
+  const analysisReport = [];
   const traderPositions = ["open_interest", "asset_mgr_long", "asset_mgr_short", "lev_money_long", "lev_money_short"];
 
   console.log("REPORT __+_+=--==-=-=-=--=", cotReport);
@@ -31,7 +31,7 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
           };
         });
       });
-      analysisReport[item.name] = {
+      analysisReport.push({
         title: item.title,
         date: item.date,
         analysis,
@@ -42,10 +42,10 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
           lev_money_long: item.lev_money_long_change,
           lev_money_short: item.lev_money_short_change,
         },
-      };
+      });
     });
 
   console.log(analysisReport);
 
-  return {};
+  return analysisReport;
 }
