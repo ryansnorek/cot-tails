@@ -2,7 +2,6 @@ import { fields } from "../constants";
 export default function cleanReport(report) {
   report = report.split("\n").map((row) => row.split(","));
   const cot = {};
-
   report.forEach((section, idx) => {
     const cotSection = {};
     section.forEach((el, i) => {
@@ -32,6 +31,8 @@ export default function cleanReport(report) {
     cleanCotObj["asset_mgr_short"] = Number(cot[key][fields[12]]);
     cleanCotObj["lev_money_long"] = Number(cot[key][fields[14]]);
     cleanCotObj["lev_money_short"] = Number(cot[key][fields[15]]);
+    cleanCotObj["nonrept_positions_long"] = Number(cot[key][fields[22]]);
+    cleanCotObj["nonrept_positions_short"] = Number(cot[key][fields[23]]);
     cleanCotObj["open_interest_change"] = Number(cot[key][fields[24]]);
     cleanCotObj["asset_mgr_long_change"] = Number(cot[key][fields[28]]);
     cleanCotObj["asset_mgr_short_change"] = Number(cot[key][fields[29]]);
@@ -42,3 +43,4 @@ export default function cleanReport(report) {
   cleanCot.pop();
   return cleanCot;
 }
+
