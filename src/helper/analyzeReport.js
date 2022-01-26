@@ -4,7 +4,15 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
   const { deviation } = formValues;
 
   const analysisReport = [];
-  const traderPositions = ["open_interest", "asset_mgr_long", "asset_mgr_short", "lev_money_long", "lev_money_short"];
+  const traderPositions = [
+    "open_interest",
+    "asset_mgr_long",
+    "asset_mgr_short",
+    "lev_money_long",
+    "lev_money_short",
+    "nonrept_positions_long",
+    "nonrept_positions_short",
+  ];
 
   console.log("REPORT __+_+=--==-=-=-=--=", cotReport);
 
