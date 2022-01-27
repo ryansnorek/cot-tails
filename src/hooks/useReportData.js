@@ -12,15 +12,6 @@ export default function useReportData(year) {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analyzedReport, setAnalyzedReport] = useState([])
 
-  useEffect(function reportAnalysis() {
-    if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
-      // setIsAnalyzing(true);
-      const report = analyzeReport(currentCotReport, historyMetrics);
-      setAnalyzedReport(report);
-    }
-    return () => setIsAnalyzing(false);
-  }, [historyMetrics, currentCotReport])
-
   useEffect(function getMetrics() {
     if (historyMetrics.length === 0) {
       setLoadingMetrics(true);
@@ -42,7 +33,10 @@ export default function useReportData(year) {
       axios
         .get("/dea/newcot/FinFutWk.txt")
         .then((report) => {
-          setCurrentCotReport(cleanReport(report.data));
+          return cleanReport(report.data);
+        })
+        .then((cleanReport) => {
+          setCurrentCotReport((cleanReport));
         })
         .catch((err) => {
           console.log("ERROR =-=--=-=", err);
@@ -51,6 +45,14 @@ export default function useReportData(year) {
     return () => setLoadingReport(false);
   }, []);
 
+  useEffect(function reportAnalysis() {
+    if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
+      // setIsAnalyzing(true);
+      const report = analyzeReport(currentCotReport, historyMetrics);
+      setAnalyzedReport(report);
+    }
+    return () => setIsAnalyzing(false);
+  }, [historyMetrics, currentCotReport])
 
 
   return [analyzedReport, loadingMetrics, loadingReport, isAnalyzing];
