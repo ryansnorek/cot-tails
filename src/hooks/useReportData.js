@@ -9,25 +9,22 @@ export default function useReportData(year) {
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [loadingMetrics, setLoadingMetrics] = useState(false);
   const [loadingReport, setLoadingReport] = useState(false);
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analyzedReport, setAnalyzedReport] = useState([]);
 
-
-  
   useEffect(function getCotReport() {
     if (currentCotReport.length === 0) {
       setLoadingReport(true);
-        axios
-          .get(`${BACKEND_URL}/api/cot/report`)
-          .then((report) => {
-            return cleanReport(report.data);
-          })
-          .then((cleanReport) => {
-            setCurrentCotReport(cleanReport);
-          })
-          .catch((err) => {
-            console.log("ERROR =-=--=-=", err);
-          });
+      axios
+        .get(`${BACKEND_URL}/api/cot/report`)
+        .then((report) => {
+          return cleanReport(report.data);
+        })
+        .then((cleanReport) => {
+          setCurrentCotReport(cleanReport);
+        })
+        .catch((err) => {
+          console.log("ERROR =-=--=-=", err);
+        });
     }
     return () => setLoadingReport(false);
   }, []);
@@ -49,15 +46,15 @@ export default function useReportData(year) {
 
   useEffect(
     function reportAnalysis() {
-      if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
-        setIsAnalyzing(true);
+      if (currentCotReport.length > 1 && historyMetrics.length > 1 && analyzedReport.length === 0) {
         const report = analyzeReport(currentCotReport, historyMetrics);
         setAnalyzedReport(report);
       }
-      return () => setIsAnalyzing(false);
+      return () => setLoadingReport(false)
     },
     [historyMetrics, currentCotReport]
   );
 
-  return [analyzedReport, loadingMetrics, loadingReport, setIsAnalyzing];
+
+  return [analyzedReport, loadingMetrics, loadingReport];
 }
