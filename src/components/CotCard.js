@@ -2,7 +2,7 @@ export default function CotCard({ item }) {
   return (
     <div className="cot-card">
       <header>
-        <h3>{item.title}</h3>
+        <h2>{item.title}</h2>
       </header>
       <div className="report-analysis">
           <section>

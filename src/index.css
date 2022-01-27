@@ -49,20 +49,24 @@ h1 {
 
 .cot-card {
   box-shadow: 0 0 1px #868686;
-  padding: 0.1rem 0.6rem;
 }
 .cot-card h3 {
   border-bottom: 1px solid #d1cbcb;
 }
+.cot-card h2 {
+  background-color: #303030;
+  color: snow;
+  margin: 0;
+  padding: 0.3rem;
+}
 .report-analysis section {
+  padding: 0.1rem 0.6rem;
   display: grid;
   grid-template-columns: repeat(5, 20%);
-  grid-template-rows: fit-content(40%);
+  /* grid-template-rows: fit-content(40%); */
   align-items: center;
   margin: 0;
   /* grid-template-rows: min-content 1fr min-content; */
-
   width: 100%;
-  /* border: 1px solid red; */
 }
 

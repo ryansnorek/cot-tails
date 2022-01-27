@@ -12,6 +12,8 @@ export default function useReportData(year) {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analyzedReport, setAnalyzedReport] = useState([]);
 
+
+  
   useEffect(function getCotReport() {
     if (currentCotReport.length === 0) {
       setLoadingReport(true);
@@ -57,5 +59,5 @@ export default function useReportData(year) {
     [historyMetrics, currentCotReport]
   );
 
-  return [analyzedReport, loadingMetrics, loadingReport, isAnalyzing];
+  return [analyzedReport, loadingMetrics, loadingReport, setIsAnalyzing];
 }
