@@ -47,6 +47,13 @@ export default function CotCard({ item }) {
             <p>{item.analysis.lev_money_short.average.toLocaleString()}</p>
             <p>{item.analysis.lev_money_short.from_average.toLocaleString()}</p>
           </section>
+          <section>
+            <h4>Non Reportables Long</h4>
+            <p>{item.analysis.nonrept_positions_long.current_report.toLocaleString()}</p>
+            <p>{item.weekChange.nonrept_positions_long.toLocaleString()}</p>
+            <p>{item.analysis.nonrept_positions_long.average.toLocaleString()}</p>
+            <p>{item.analysis.nonrept_positions_long.from_average.toLocaleString()}</p>
+          </section>
       </div>
     </div>
   );

@@ -38,6 +38,8 @@ export default function cleanReport(report) {
     cleanCotObj["asset_mgr_short_change"] = Number(cot[key][fields[29]]);
     cleanCotObj["lev_money_long_change"] = Number(cot[key][fields[31]]);
     cleanCotObj["lev_money_short_change"] = Number(cot[key][fields[32]]);
+    cleanCotObj["nonrept_positions_long_change"] = Number(cot[key][fields[39]]);
+    cleanCotObj["nonrept_positions_short_change"] = Number(cot[key][fields[40]]);
     cleanCot.push(cleanCotObj);
   }
   cleanCot.pop();

@@ -42,6 +42,8 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
         asset_mgr_short: item.asset_mgr_short_change,
         lev_money_long: item.lev_money_long_change,
         lev_money_short: item.lev_money_short_change,
+        nonrept_positions_long: item.nonrept_positions_long_change,
+        nonrept_positions_short: item.nonrept_positions_short_change,
       },
     });
   });

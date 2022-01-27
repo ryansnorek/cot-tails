@@ -9,6 +9,7 @@ function CotReport({ formValues }) {
     return <h1>Loading</h1>
   }
 
+  console.log(analyzedReport)
   return (
     <div className="cot-report-wrapper">
       <header>

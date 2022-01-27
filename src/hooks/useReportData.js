@@ -10,7 +10,25 @@ export default function useReportData(year) {
   const [loadingMetrics, setLoadingMetrics] = useState(false);
   const [loadingReport, setLoadingReport] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analyzedReport, setAnalyzedReport] = useState([])
+  const [analyzedReport, setAnalyzedReport] = useState([]);
+
+  useEffect(function getCotReport() {
+    if (currentCotReport.length === 0) {
+      setLoadingReport(true);
+      axios
+        .get("/dea/newcot/FinFutWk.txt")
+        .then((report) => {
+          return cleanReport(report.data);
+        })
+        .then((cleanReport) => {
+          setCurrentCotReport(cleanReport);
+        })
+        .catch((err) => {
+          console.log("ERROR =-=--=-=", err);
+        });
+    }
+    return () => setLoadingReport(false);
+  }, []);
 
   useEffect(function getMetrics() {
     if (historyMetrics.length === 0) {
@@ -27,33 +45,17 @@ export default function useReportData(year) {
     return () => setLoadingMetrics(false);
   }, []);
 
-  useEffect(function getCotReport() {
-    if (currentCotReport.length === 0) {
-      setLoadingReport(true);
-      axios
-        .get("/dea/newcot/FinFutWk.txt")
-        .then((report) => {
-          return cleanReport(report.data);
-        })
-        .then((cleanReport) => {
-          setCurrentCotReport((cleanReport));
-        })
-        .catch((err) => {
-          console.log("ERROR =-=--=-=", err);
-        });
-    }
-    return () => setLoadingReport(false);
-  }, []);
-
-  useEffect(function reportAnalysis() {
-    if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
-      // setIsAnalyzing(true);
-      const report = analyzeReport(currentCotReport, historyMetrics);
-      setAnalyzedReport(report);
-    }
-    return () => setIsAnalyzing(false);
-  }, [historyMetrics, currentCotReport])
-
+  useEffect(
+    function reportAnalysis() {
+      if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
+        // setIsAnalyzing(true);
+        const report = analyzeReport(currentCotReport, historyMetrics);
+        setAnalyzedReport(report);
+      }
+      return () => setIsAnalyzing(false);
+    },
+    [historyMetrics, currentCotReport]
+  );
 
   return [analyzedReport, loadingMetrics, loadingReport, isAnalyzing];
 }
