@@ -91,5 +91,6 @@ h1 {
 }
 
 .filter {
-  background-color: red;
+  color: red;
+  font-weight: bold;
 }
