@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import cleanReport from "../helper/cleanReport";
-import { BACKEND_URL } from "../constants";
+import { BACKEND_URL, COT_URL } from "../constants";
 import analyzeReport from "../helper/analyzeReport";
 
 export default function useReportData(year) {
@@ -16,7 +16,7 @@ export default function useReportData(year) {
     if (currentCotReport.length === 0) {
       setLoadingReport(true);
       axios
-        .get("/dea/newcot/FinFutWk.txt")
+        .get(`${COT_URL}/dea/newcot/FinFutWk.txt`)
         .then((report) => {
           return cleanReport(report.data);
         })

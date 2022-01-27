@@ -1,4 +1,5 @@
 export const BACKEND_URL = "https://cot-tails-app.herokuapp.com";
+export const COT_URL = "https://www.cftc.gov";
 export const fields = [
     "Market_and_Exchange_Names",
     "As_of_Date_In_Form_YYMMDD",
