@@ -5,6 +5,7 @@ function CotReport({ formValues }) {
 
   const [analyzedReport] = useReportData(formValues.year);
 
+  console.log(analyzedReport)
   return (
     <div className="cot-report-wrapper">
       <section>

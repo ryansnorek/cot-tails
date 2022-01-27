@@ -33,6 +33,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* background-image: linear-gradient(#ebe9e9, #ebe9e9, #303030); */
+  box-shadow: 0 0 1rem inset #868686;
 } 
 .user-select {
   padding: 3px 6px;
@@ -57,11 +59,11 @@ h1 {
   box-shadow: 0 0 1px #868686;
 }
 .cot-card h3 {
-  border-bottom: 1px solid #d1cbcb;
   margin: 0;
 }
 .cot-card h2 {
   background-color: #303030;
+  /* box-shadow: 0 0 1rem inset #d1cbcb; */
   color: snow;
   margin: 0;
   padding: 0.3rem;
@@ -80,5 +82,9 @@ h1 {
 .report-analysis section p,
 .report-analysis section h4 {
   margin: 0;
+}
+
+.report-data section {
+  box-shadow: 0 0 1px inset #303030;
 }
 

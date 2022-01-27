@@ -12,6 +12,7 @@ export default function CotCard({ item }) {
             <h3>Average position</h3>
             <h3>Deviation</h3>
           </section>
+          <div className="report-data">
           <section>
             <h4>Open Interest</h4>
             <p>{item.analysis.open_interest.current_report.toLocaleString()}</p>
@@ -61,6 +62,7 @@ export default function CotCard({ item }) {
             <p>{item.analysis.nonrept_positions_short.average.toLocaleString()}</p>
             <p>{item.analysis.nonrept_positions_short.from_average.toLocaleString()}</p>
           </section>
+          </div>
       </div>
     </div>
   );
