@@ -66,7 +66,6 @@ h1 {
 }
 .cot-card h2 {
   background-color: #303030;
-  /* box-shadow: 0 0 1rem inset #d1cbcb; */
   color: snow;
   margin: 0;
   padding: 0.3rem;
@@ -91,3 +90,6 @@ h1 {
   box-shadow: 0 0 1px inset #303030;
 }
 
+.filter {
+  background-color: red;
+}

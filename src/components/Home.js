@@ -3,7 +3,7 @@ import CotReport from "./CotReport";
 
 const initialFormValues = {
   year: 2021,
-  deviation: 200,
+  deviation: 20,
 };
 
 function Home() {
