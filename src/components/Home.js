@@ -13,7 +13,7 @@ function Home() {
   };
 
   return (
-    <>
+    <div className="wrapper">
       <div className="user-inputs">
         {/* <div className="text">
                 <p>Comparing averages from</p>
@@ -56,7 +56,7 @@ function Home() {
         </div>
       </div>
       <CotReport formValues={formValues}/>
-    </>
+    </div>
   );
 }
 
