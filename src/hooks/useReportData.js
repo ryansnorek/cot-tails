@@ -16,7 +16,7 @@ export default function useReportData(year) {
     if (currentCotReport.length === 0) {
       setLoadingReport(true);
       axios
-        .get(`${COT_URL}/dea/newcot/FinFutWk.txt`)
+        .get("/dea/newcot/FinFutWk.txt" || `${COT_URL}/dea/newcot/FinFutWk.txt`)
         .then((report) => {
           return cleanReport(report.data);
         })
@@ -48,7 +48,7 @@ export default function useReportData(year) {
   useEffect(
     function reportAnalysis() {
       if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
-        // setIsAnalyzing(true);
+        setIsAnalyzing(true);
         const report = analyzeReport(currentCotReport, historyMetrics);
         setAnalyzedReport(report);
       }
