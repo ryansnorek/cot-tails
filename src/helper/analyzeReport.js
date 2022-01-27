@@ -1,9 +1,6 @@
 import getDeviation from "./getDeviation";
 
 export default function analyzeReport(cotReport, cotMetrics, formValues) {
-
-  console.log(cotReport)
-  console.log(cotMetrics)
   const analysisReport = [];
   const traderPositions = [
     "open_interest",
