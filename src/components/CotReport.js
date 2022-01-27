@@ -3,7 +3,7 @@ import useReportData from "../hooks/useReportData";
 import CotCard from "./CotCard";
 
 function CotReport({ formValues }) {
-  const [currentCotReport, historyMetrics] = useReportData(formValues.year);
+  const [currentCotReport, historyMetrics, loadingMetrics, loadingReport] = useReportData(formValues.year);
 
   const [analyzedReport] = analyzeReport(
     currentCotReport,
@@ -11,7 +11,10 @@ function CotReport({ formValues }) {
     formValues
   );
 
-  // const releaseDate = analyzedReport[0].date ? analyzedReport[0].date : "";
+  if (loadingMetrics || loadingReport) {
+    return <h1>Loading</h1>
+  }
+
   console.log(analyzedReport);
   return (
     <div className="cot-report-wrapper">
@@ -20,8 +23,7 @@ function CotReport({ formValues }) {
         {/* <p>As of: {releaseDate}</p> */}
       </header>
       <section>
-        {analyzedReport[0] &&
-          analyzedReport.map((item) => {
+        {analyzedReport.map((item) => {
             return (
               <CotCard item={item}/>
             );
