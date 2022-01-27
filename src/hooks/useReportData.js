@@ -50,7 +50,7 @@ export default function useReportData(year) {
   useEffect(
     function reportAnalysis() {
       if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
-        // setIsAnalyzing(true);
+        setIsAnalyzing(true);
         const report = analyzeReport(currentCotReport, historyMetrics);
         setAnalyzedReport(report);
       }

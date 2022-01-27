@@ -52,6 +52,7 @@ h1 {
 }
 .cot-card h3 {
   border-bottom: 1px solid #d1cbcb;
+  margin: 0;
 }
 .cot-card h2 {
   background-color: #303030;
@@ -63,10 +64,11 @@ h1 {
   padding: 0.1rem 0.6rem;
   display: grid;
   grid-template-columns: repeat(5, 20%);
-  /* grid-template-rows: fit-content(40%); */
   align-items: center;
-  margin: 0;
-  /* grid-template-rows: min-content 1fr min-content; */
   width: 100%;
+}
+.report-analysis section p,
+.report-analysis section h4 {
+  margin: 0;
 }
 
