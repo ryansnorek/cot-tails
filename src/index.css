@@ -33,8 +33,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-image: linear-gradient(#ebe9e9, #ebe9e9, #303030); */
-  box-shadow: 0 0 1rem inset #868686;
 } 
 .user-select {
   padding: 3px 6px;
@@ -55,6 +53,11 @@ h1 {
   padding-left: 6px;
 }
 
+.date h3 {
+  margin: 0;
+  margin-left: 0.6rem;
+  font-weight: 600;
+}
 .cot-card {
   box-shadow: 0 0 1px #868686;
 }

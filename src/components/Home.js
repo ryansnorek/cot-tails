@@ -12,15 +12,10 @@ function Home() {
     setFormValues({ [e.target.name]: e.target.value });
   };
 
-
   return (
     <div className="wrapper">
       <header className="top">
       <h1>Commitment of Traders</h1>
-        {/* <div className="text">
-                <p>Comparing averages from</p>
-                <p>Deviation from average</p>
-            </div> */}
         <div className="user-select">
           <label>
             Select year
