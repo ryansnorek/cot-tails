@@ -5,7 +5,7 @@ export default function CotCard({ item }) {
         <h2>{item.title}</h2>
       </header>
       <div className="report-analysis">
-          <section>
+          <section className="titles">
             <h3>Trader Position</h3>
             <h3>Current report</h3>
             <h3>Week change</h3>

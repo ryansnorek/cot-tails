@@ -66,6 +66,10 @@ h1 {
   grid-template-columns: repeat(5, 20%);
   align-items: center;
   width: 100%;
+  background-color: #fafafa;
+}
+.report-analysis .titles {
+  background-color: #ebe9e9;
 }
 .report-analysis section p,
 .report-analysis section h4 {
