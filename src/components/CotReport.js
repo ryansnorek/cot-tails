@@ -3,19 +3,12 @@ import useReportData from "../hooks/useReportData";
 import CotCard from "./CotCard";
 
 function CotReport({ formValues }) {
-  const [currentCotReport, historyMetrics, loadingMetrics, loadingReport] = useReportData(formValues.year);
+  const [analyzedReport, loadingMetrics, loadingReport, isAnalyzing] = useReportData(formValues.year);
 
-  const [analyzedReport] = analyzeReport(
-    currentCotReport,
-    historyMetrics,
-    formValues
-  );
-
-  if (loadingMetrics || loadingReport) {
+  if (loadingMetrics || loadingReport || isAnalyzing) {
     return <h1>Loading</h1>
   }
 
-  console.log(analyzedReport);
   return (
     <div className="cot-report-wrapper">
       <header>

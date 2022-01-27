@@ -2,15 +2,26 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import cleanReport from "../helper/cleanReport";
 import { BACKEND_URL } from "../constants";
+import analyzeReport from "../helper/analyzeReport";
 
 export default function useReportData(year) {
   const [currentCotReport, setCurrentCotReport] = useState([]);
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [loadingMetrics, setLoadingMetrics] = useState(false);
   const [loadingReport, setLoadingReport] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analyzedReport, setAnalyzedReport] = useState([])
+
+  useEffect(function reportAnalysis() {
+    if (!loadingMetrics && !loadingReport && analyzedReport.length === 0) {
+      // setIsAnalyzing(true);
+      const report = analyzeReport(currentCotReport, historyMetrics);
+      setAnalyzedReport(report);
+    }
+    return () => setIsAnalyzing(false);
+  }, [historyMetrics, currentCotReport])
 
   useEffect(function getMetrics() {
-    console.log("EFFECT METRICS")
     if (historyMetrics.length === 0) {
       setLoadingMetrics(true);
       axios
@@ -26,8 +37,6 @@ export default function useReportData(year) {
   }, []);
 
   useEffect(function getCotReport() {
-    console.log("EFFECT REPORT")
-
     if (currentCotReport.length === 0) {
       setLoadingReport(true);
       axios
@@ -44,5 +53,5 @@ export default function useReportData(year) {
 
 
 
-  return [currentCotReport, historyMetrics, loadingMetrics, loadingReport];
+  return [analyzedReport, loadingMetrics, loadingReport, isAnalyzing];
 }

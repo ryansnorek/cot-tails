@@ -15,7 +15,7 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
     "nonrept_positions_short",
   ];
 
-  cotReport[0] && cotReport.forEach((item) => {
+  cotReport.length > 1 && cotReport.forEach((item) => {
     const itemMetrics = cotMetrics.filter(
       (m) => item.name === m.market_and_exchange_names
     );
@@ -48,5 +48,6 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
       },
     });
   });
-  return [analysisReport];
+  console.log("analyzeReport return: ",analysisReport)
+  return analysisReport;
 }
