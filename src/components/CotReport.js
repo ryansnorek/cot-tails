@@ -3,14 +3,14 @@ import CotCard from "./CotCard";
 
 function CotReport({ formValues }) {
 
-  const [analyzedReport] = useReportData(formValues.year);
+  const [analyzedReport] = useReportData(formValues);
 
   console.log(analyzedReport)
 
   return (
     <div className="cot-report-wrapper">
       <div className="date">
-        <h3>As of {analyzedReport[0].date}</h3>
+        {/* <h3>As of {analyzedReport[0].date}</h3> */}
       </div>
       <section>
         {analyzedReport.map((item) => {

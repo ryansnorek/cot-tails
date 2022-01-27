@@ -4,7 +4,7 @@ import cleanReport from "../helper/cleanReport";
 import { BACKEND_URL } from "../constants";
 import analyzeReport from "../helper/analyzeReport";
 
-export default function useReportData(year) {
+export default function useReportData(formValues) {
   const [currentCotReport, setCurrentCotReport] = useState([]);
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [analyzedReport, setAnalyzedReport] = useState([]);
@@ -28,7 +28,7 @@ export default function useReportData(year) {
   useEffect(function getMetrics() {
     if (historyMetrics.length === 0) {
       axios
-        .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
+        .get(`${BACKEND_URL}/api/cot/history/metrics/${formValues.year}`)
         .then((metrics) => {
           setHistoryMetrics(metrics.data);
         })
@@ -45,7 +45,7 @@ export default function useReportData(year) {
         historyMetrics.length > 1 &&
         analyzedReport.length === 0
       ) {
-        const report = analyzeReport(currentCotReport, historyMetrics);
+        const report = analyzeReport(currentCotReport, historyMetrics, formValues);
         setAnalyzedReport(report);
       }
     },

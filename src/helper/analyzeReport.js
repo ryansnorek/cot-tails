@@ -1,5 +1,15 @@
 import getDeviation from "./getDeviation";
 
+function markFilter(current, metric, formValues) {
+  let dev = getDeviation(current, metric);
+  dev = Number(dev.slice(0, dev.length - 2));
+  let filter = false;
+  if (dev >= formValues.deviation) {
+    filter = true;
+  }
+  return filter;
+}
+
 export default function analyzeReport(cotReport, cotMetrics, formValues) {
   const analysisReport = [];
   const traderPositions = [
@@ -11,13 +21,20 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
     "nonrept_positions_long",
     "nonrept_positions_short",
   ];
-  cotReport.length > 1 && cotReport.forEach((item) => {
-    const itemMetrics = cotMetrics.filter(
-      (m) => item.name === m.market_and_exchange_names
-    );
-    let analysis = {};
-    traderPositions.forEach((position, i) => {
+  cotReport.length > 1 &&
+    cotReport.forEach((item) => {
+      const itemMetrics = cotMetrics.filter(
+        (m) => item.name === m.market_and_exchange_names
+      );
+      let analysis = {};
+      traderPositions.forEach((position, i) => {
+        const filter = markFilter(
+          item[position],
+          itemMetrics[i].cot_mean,
+          formValues
+        );
         analysis[position] = {
+          filter,
           current_report: item[position],
           average: itemMetrics[i].cot_mean,
           median: itemMetrics[i].cot_median,
@@ -28,21 +45,21 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
           from_max: getDeviation(item[position], itemMetrics[i].cot_max),
           from_min: getDeviation(item[position], itemMetrics[i].cot_min),
         };
+      });
+      analysisReport.push({
+        title: item.title,
+        date: item.date,
+        analysis,
+        weekChange: {
+          open_interest: item.open_interest_change,
+          asset_mgr_long: item.asset_mgr_long_change,
+          asset_mgr_short: item.asset_mgr_short_change,
+          lev_money_long: item.lev_money_long_change,
+          lev_money_short: item.lev_money_short_change,
+          nonrept_positions_long: item.nonrept_positions_long_change,
+          nonrept_positions_short: item.nonrept_positions_short_change,
+        },
+      });
     });
-    analysisReport.push({
-      title: item.title,
-      date: item.date,
-      analysis,
-      weekChange: {
-        open_interest: item.open_interest_change,
-        asset_mgr_long: item.asset_mgr_long_change,
-        asset_mgr_short: item.asset_mgr_short_change,
-        lev_money_long: item.lev_money_long_change,
-        lev_money_short: item.lev_money_short_change,
-        nonrept_positions_long: item.nonrept_positions_long_change,
-        nonrept_positions_short: item.nonrept_positions_short_change,
-      },
-    });
-  });
   return analysisReport;
 }
