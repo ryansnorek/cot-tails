@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import cleanReport from "../helper/cleanReport";
-import { BACKEND_URL, COT_URL } from "../constants";
+import { BACKEND_URL } from "../constants";
 import analyzeReport from "../helper/analyzeReport";
 
 export default function useReportData(year) {
@@ -18,7 +18,6 @@ export default function useReportData(year) {
         axios
           .get(`${BACKEND_URL}/api/cot/report`)
           .then((report) => {
-            console.log(report)
             return cleanReport(report.data);
           })
           .then((cleanReport) => {
