@@ -48,6 +48,5 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
       },
     });
   });
-  console.log("analyzeReport return: ",analysisReport)
   return analysisReport;
 }
