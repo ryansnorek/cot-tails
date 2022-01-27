@@ -11,9 +11,9 @@ function CotReport({ formValues }) {
   console.log(analyzedReport)
   return (
     <div className="cot-report-wrapper">
-      <header>
+      {/* <header>
         <h1>Commitment of Traders</h1>
-      </header>
+      </header> */}
       <section>
         {analyzedReport.map((item) => {
             return (

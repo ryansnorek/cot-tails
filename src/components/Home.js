@@ -14,7 +14,8 @@ function Home() {
 
   return (
     <div className="wrapper">
-      <div className="user-inputs">
+      <header className="top">
+      <h1>Commitment of Traders</h1>
         {/* <div className="text">
                 <p>Comparing averages from</p>
                 <p>Deviation from average</p>
@@ -54,7 +55,7 @@ function Home() {
             </select>
           </label>
         </div>
-      </div>
+      </header>
       <CotReport formValues={formValues}/>
     </div>
   );
