@@ -15,11 +15,10 @@ export default function useReportData(year) {
   useEffect(function getCotReport() {
     if (currentCotReport.length === 0) {
       setLoadingReport(true);
-      try {
         axios
-          .get(`${COT_URL}/dea/newcot/FinFutWk.txt`)
-          // .get(`${BACKEND_URL}/api/cot/report`)
+          .get(`${BACKEND_URL}/api/cot/report`)
           .then((report) => {
+            console.log(report)
             return cleanReport(report.data);
           })
           .then((cleanReport) => {
@@ -28,25 +27,6 @@ export default function useReportData(year) {
           .catch((err) => {
             console.log("ERROR =-=--=-=", err);
           });
-      } catch (err) {
-        console.log(err)
-      }
-
-      try {
-        axios
-        .get(`/dea/newcot/FinFutWk.txt`)
-        .then((report) => {
-          return cleanReport(report.data);
-        })
-        .then((cleanReport) => {
-          setCurrentCotReport(cleanReport);
-        })
-        .catch((err) => {
-          console.log("ERROR =-=--=-=", err);
-        });
-      } catch (err) {
-        console.log(err)
-      }
     }
     return () => setLoadingReport(false);
   }, []);
