@@ -7,28 +7,33 @@ export default function useReportData(year) {
   const [currentCotReport, setCurrentCotReport] = useState({});
   const [historyMetrics, setHistoryMetrics] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      await axios
-        .get("/dea/newcot/FinFutWk.txt")
-        .then((report) => {
-          setCurrentCotReport(cleanReport(report.data));
-        })
-        .catch((err) => {
-          console.log(err);
-        });
 
-      await axios
+  useEffect(() => {
+    function fetchHistoryMetrics() {
+      axios
         .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
         .then((metrics) => {
           setHistoryMetrics(metrics.data);
         })
         .catch((err) => {
-          console.log(err);
+          console.log("ERROR =-=--=-=",err);
         });
     }
-    fetchData();
-  }, []);
+    function fetchCotReport() {
+      axios
+        .get("/dea/newcot/FinFutWk.txt")
+        .then((report) => {
+          setCurrentCotReport(cleanReport(report.data));
+        })
+        .then(() => {
+          fetchHistoryMetrics()
+        })
+        .catch((err) => {
+          console.log("ERROR =-=--=-=",err);
+        });
+    }
+    fetchCotReport();
+  },[])
 
   return [currentCotReport, historyMetrics];
 }
