@@ -5,8 +5,6 @@ export default function CotCard({ item }) {
     asset_mgr_short,
     lev_money_long,
     lev_money_short,
-    nonrept_positions_long,
-    nonrept_positions_short,
   } = item.analysis;
   return (
     <div className="cot-card">

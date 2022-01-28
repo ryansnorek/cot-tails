@@ -84,13 +84,15 @@ export default function analyzeReport(cotReport, cotMetrics, deviation) {
         reportItem.asset_mgr_short_change,
         reportItem.lev_money_long_change,
         reportItem.lev_money_short_change
-      )
-      analysisReport.push(new FullReport(
-        reportItem.title,
-        reportItem.date,
-        analysis,
-        weeklyChanges
-      ))
+      );
+      analysisReport.push(
+        new FullReport(
+          reportItem.title,
+          reportItem.date,
+          analysis,
+          weeklyChanges
+        )
+      );
     });
   return analysisReport;
 }
