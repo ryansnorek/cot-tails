@@ -5,7 +5,7 @@ function CotReport({ formValues }) {
 
   const [analyzedReport] = useReportData(formValues);
 
-  console.log(analyzedReport)
+  // console.log(analyzedReport)
 
   return (
     <div className="cot-report-wrapper">
@@ -14,6 +14,7 @@ function CotReport({ formValues }) {
       </div>
       <section>
         {analyzedReport.map((item) => {
+
             return (
               <CotCard key={item.title} item={item}/>
             );

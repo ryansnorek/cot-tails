@@ -21,7 +21,7 @@ function Home() {
       <h1>Commitment of Traders</h1>
         <div className="user-select">
           <label>
-            Select year
+            Comparison year
             <select
               // name="year"
               className="dropdown"

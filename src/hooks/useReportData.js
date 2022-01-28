@@ -45,7 +45,6 @@ export default function useReportData(formValues) {
       if (
         currentCotReport.length > 1 &&
         historyMetrics.length > 1 
-        // analyzedReport.length === 0
       ) {
         const report = analyzeReport(currentCotReport, historyMetrics, deviation);
         setAnalyzedReport(report);
