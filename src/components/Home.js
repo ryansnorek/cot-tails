@@ -9,7 +9,10 @@ const initialFormValues = {
 function Home() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const handleChange = (e) => {
-    setFormValues({ [e.target.name]: e.target.value });
+    setFormValues({ 
+      ...formValues,
+      [e.target.name]: Number(e.target.value) 
+    });
   };
 
   return (
@@ -20,6 +23,7 @@ function Home() {
           <label>
             Select year
             <select
+              // name="year"
               className="dropdown"
               value={formValues.year}
               onChange={handleChange}
@@ -37,6 +41,7 @@ function Home() {
           <label>
             Deviation filter
             <select
+              name="deviation"
               className="dropdown"
               value={formValues.deviation}
               onChange={handleChange}

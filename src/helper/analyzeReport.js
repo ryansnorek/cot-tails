@@ -1,18 +1,18 @@
 import getDeviation from "./getDeviation";
 
-function markFilter(current, metric, formValues) {
+function markFilter(current, metric, deviation) {
   let dev = getDeviation(current, metric);
   dev = parseFloat(dev.slice(0, dev.length - 2));
   let filter = false;
-  if (dev > 0 && dev >= formValues.deviation) {
+  if (dev > 0 && dev >= deviation) {
     filter = true;
-  } else if (dev < 0 && dev <= -formValues.deviation) {
+  } else if (dev < 0 && dev <= -deviation) {
     filter = true;
   }
   return filter;
 }
 
-export default function analyzeReport(cotReport, cotMetrics, formValues) {
+export default function analyzeReport(cotReport, cotMetrics, deviation) {
   const analysisReport = [];
   const traderPositions = [
     "open_interest",
@@ -33,7 +33,7 @@ export default function analyzeReport(cotReport, cotMetrics, formValues) {
         const filter = markFilter(
           reportItem[position],
           itemMetrics[i].cot_mean,
-          formValues
+          deviation
         );
         analysis[position] = {
           filter,

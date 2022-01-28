@@ -5,10 +5,12 @@ import { BACKEND_URL } from "../constants";
 import analyzeReport from "../helper/analyzeReport";
 
 export default function useReportData(formValues) {
+  const { year, deviation } = formValues;
   const [currentCotReport, setCurrentCotReport] = useState([]);
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [analyzedReport, setAnalyzedReport] = useState([]);
 
+  console.log(formValues)
   useEffect(function getCotReport() {
     if (currentCotReport.length === 0) {
       axios
@@ -26,30 +28,30 @@ export default function useReportData(formValues) {
   }, []);
 
   useEffect(function getMetrics() {
-    if (historyMetrics.length === 0) {
+    console.log("METRICS EFFECT")
+    console.log(year)
       axios
-        .get(`${BACKEND_URL}/api/cot/history/metrics/${formValues.year}`)
+        .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
         .then((metrics) => {
           setHistoryMetrics(metrics.data);
         })
         .catch((err) => {
           console.error("Error fetching history metrics =-=--=-=", err);
         });
-    }
-  }, []);
+  }, [year]);
 
   useEffect(
     function reportAnalysis() {
       if (
         currentCotReport.length > 1 &&
-        historyMetrics.length > 1 &&
-        analyzedReport.length === 0
+        historyMetrics.length > 1 
+        // analyzedReport.length === 0
       ) {
-        const report = analyzeReport(currentCotReport, historyMetrics, formValues);
+        const report = analyzeReport(currentCotReport, historyMetrics, deviation);
         setAnalyzedReport(report);
       }
     },
-    [historyMetrics, currentCotReport]
+    [historyMetrics, currentCotReport, deviation]
   );
 
   return [analyzedReport];
