@@ -1,5 +1,12 @@
 export const BACKEND_URL = "https://cot-tails-app.herokuapp.com";
 export const COT_URL = "https://www.cftc.gov";
+export const traderPositions = [
+  "open_interest",
+  "asset_mgr_long",
+  "asset_mgr_short",
+  "lev_money_long",
+  "lev_money_short",
+];
 export const fields = [
     "Market_and_Exchange_Names",
     "As_of_Date_In_Form_YYMMDD",
@@ -89,3 +96,4 @@ export const fields = [
     "CFTC_SubGroup_Code",
     "FutOnly_or_Combined",
   ];
+

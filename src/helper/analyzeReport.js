@@ -1,28 +1,58 @@
 import getDeviation from "./getDeviation";
+import markFilter from "./markFilter";
+import { traderPositions } from "../constants";
 
-function markFilter(current, metric, deviation) {
-  let dev = getDeviation(current, metric);
-  dev = parseFloat(dev.slice(0, dev.length - 2));
-  let filter = false;
-  if (dev > 0 && dev >= deviation) {
-    filter = true;
-  } else if (dev < 0 && dev <= -deviation) {
-    filter = true;
+class FullReport {
+  constructor(title, date, analysis, weekChange) {
+    this.title = title;
+    this.date = date;
+    this.analysis = analysis;
+    this.weekChange = weekChange;
   }
-  return filter;
+}
+class Analysis {
+  constructor(
+    filter,
+    current_report,
+    average,
+    median,
+    max,
+    min,
+    from_average,
+    from_median,
+    from_max,
+    from_min
+  ) {
+    this.filter = filter;
+    this.current_report = current_report;
+    this.average = average;
+    this.median = median;
+    this.max = max;
+    this.min = min;
+    this.from_average = from_average;
+    this.from_median = from_median;
+    this.from_max = from_max;
+    this.from_min = from_min;
+  }
+}
+class WeekChange {
+  constructor(
+    open_interest,
+    asset_mgr_long,
+    asset_mgr_short,
+    lev_money_long,
+    lev_money_short
+  ) {
+    this.open_interest = open_interest;
+    this.asset_mgr_long = asset_mgr_long;
+    this.asset_mgr_short = asset_mgr_short;
+    this.lev_money_long = lev_money_long;
+    this.lev_money_short = lev_money_short;
+  }
 }
 
 export default function analyzeReport(cotReport, cotMetrics, deviation) {
   const analysisReport = [];
-  const traderPositions = [
-    "open_interest",
-    "asset_mgr_long",
-    "asset_mgr_short",
-    "lev_money_long",
-    "lev_money_short",
-    "nonrept_positions_long",
-    "nonrept_positions_short",
-  ];
   cotReport.length > 1 &&
     cotReport.forEach((reportItem) => {
       const itemMetrics = cotMetrics.filter(
@@ -35,33 +65,32 @@ export default function analyzeReport(cotReport, cotMetrics, deviation) {
           itemMetrics[i].cot_mean,
           deviation
         );
-        analysis[position] = {
+        analysis[position] = new Analysis(
           filter,
-          current_report: reportItem[position],
-          average: itemMetrics[i].cot_mean,
-          median: itemMetrics[i].cot_median,
-          max: itemMetrics[i].cot_max,
-          min: itemMetrics[i].cot_min,
-          from_average: getDeviation(reportItem[position], itemMetrics[i].cot_mean),
-          from_median: getDeviation(reportItem[position], itemMetrics[i].cot_median),
-          from_max: getDeviation(reportItem[position], itemMetrics[i].cot_max),
-          from_min: getDeviation(reportItem[position], itemMetrics[i].cot_min),
-        };
+          reportItem[position],
+          itemMetrics[i].cot_mean,
+          itemMetrics[i].cot_median,
+          itemMetrics[i].cot_max,
+          itemMetrics[i].cot_min,
+          getDeviation(reportItem[position], itemMetrics[i].cot_mean),
+          getDeviation(reportItem[position], itemMetrics[i].cot_median),
+          getDeviation(reportItem[position], itemMetrics[i].cot_max),
+          getDeviation(reportItem[position], itemMetrics[i].cot_min)
+        );
       });
-      analysisReport.push({
-        title: reportItem.title,
-        date: reportItem.date,
+      const weeklyChanges = new WeekChange(
+        reportItem.open_interest_change,
+        reportItem.asset_mgr_long_change,
+        reportItem.asset_mgr_short_change,
+        reportItem.lev_money_long_change,
+        reportItem.lev_money_short_change
+      )
+      analysisReport.push(new FullReport(
+        reportItem.title,
+        reportItem.date,
         analysis,
-        weekChange: {
-          open_interest: reportItem.open_interest_change,
-          asset_mgr_long: reportItem.asset_mgr_long_change,
-          asset_mgr_short: reportItem.asset_mgr_short_change,
-          lev_money_long: reportItem.lev_money_long_change,
-          lev_money_short: reportItem.lev_money_short_change,
-          nonrept_positions_long: reportItem.nonrept_positions_long_change,
-          nonrept_positions_short: reportItem.nonrept_positions_short_change,
-        },
-      });
+        weeklyChanges
+      ))
     });
   return analysisReport;
 }

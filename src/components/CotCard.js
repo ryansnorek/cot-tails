@@ -57,20 +57,6 @@ export default function CotCard({ item }) {
             <p>{lev_money_short.average.toLocaleString()}</p>
             <p>{lev_money_short.from_average.toLocaleString()}</p>
           </section>
-          <section className={nonrept_positions_long.filter ? "filter" : ""}>
-            <h4>Non Reportables Long</h4>
-            <p>{nonrept_positions_long.current_report.toLocaleString()}</p>
-            <p>{item.weekChange.nonrept_positions_long.toLocaleString()}</p>
-            <p>{nonrept_positions_long.average.toLocaleString()}</p>
-            <p>{nonrept_positions_long.from_average.toLocaleString()}</p>
-          </section>
-          <section className={nonrept_positions_short.filter ? "filter" : ""}>
-            <h4>Non Reportables Short</h4>
-            <p>{nonrept_positions_short.current_report.toLocaleString()}</p>
-            <p>{item.weekChange.nonrept_positions_short.toLocaleString()}</p>
-            <p>{nonrept_positions_short.average.toLocaleString()}</p>
-            <p>{nonrept_positions_short.from_average.toLocaleString()}</p>
-          </section>
           </div>
       </div>
     </div>
