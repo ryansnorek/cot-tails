@@ -2,7 +2,7 @@ import { useState } from "react";
 import CotReport from "./CotReport";
 
 const initialFormValues = {
-  year: 2021,
+  year: "2021",
   deviation: 200,
   search: "",
 };
@@ -10,32 +10,30 @@ const initialFormValues = {
 function Home() {
   const [formValues, setFormValues] = useState(initialFormValues);
   const handleChange = (e) => {
-    setFormValues({ 
+    setFormValues({
       ...formValues,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
-
-
 
   return (
     <div className="wrapper">
       <header className="top">
-      <h1>Commitment of Traders</h1>
-          <div className="search-bar">
-            <label for="search">Search:</label>
-            <input 
-              type="search" 
-              name="search"
-              value={formValues.search}
-              onChange={handleChange}
-            />
-          </div>
+        <h1>Commitment of Traders</h1>
+        <div className="search-bar">
+          <label htmlFor="search">Search:</label>
+          <input
+            type="search"
+            name="search"
+            value={formValues.search}
+            onChange={handleChange}
+          />
+        </div>
         <div className="user-select">
           <label>
             Comparison year
             <select
-              // name="year"
+              name="year"
               className="dropdown"
               value={formValues.year}
               onChange={handleChange}
@@ -69,7 +67,7 @@ function Home() {
           </label>
         </div>
       </header>
-      <CotReport formValues={formValues}/>
+      <CotReport formValues={formValues} />
     </div>
   );
 }

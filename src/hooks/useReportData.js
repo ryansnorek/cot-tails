@@ -50,7 +50,7 @@ export default function useReportData(formValues) {
         setAnalyzedReport(report);
       }
     },
-    [historyMetrics, currentCotReport, deviation]
+    [historyMetrics, currentCotReport, year]
   );
 
   return [analyzedReport];

@@ -35,9 +35,14 @@ html {
 .user-select {
   padding: 3px 6px;
   margin-left: 6px;
+  font-size: 1rem;
 }
 select {
   margin: 0.3rem;
+}
+.search-bar,
+.search-bar input {
+  font-size: 1rem;
 }
 
 .cot-report-wrapper {
@@ -53,6 +58,7 @@ h1 {
 
 .date h3 {
   margin: 0;
+  padding-left: 6px;
   font-weight: 600;
 }
 .cot-card {
@@ -101,6 +107,9 @@ h1 {
 }
 
 @media (max-width: 415px) {
+  .top {
+    flex-direction: column;
+  }
   .titles h3 {
     font-size: 0.5rem;
   }

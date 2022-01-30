@@ -6,11 +6,15 @@ function CotReport({ formValues }) {
   const [analyzedReport] = useReportData(formValues);
 
   // console.log(analyzedReport)
+  let reportDate = "";
+  if (analyzedReport.length > 0) {
+    reportDate = analyzedReport[0].date
+  }
 
   return (
     <div className="cot-report-wrapper">
       <div className="date">
-        {/* <h3>As of {analyzedReport[0].date}</h3> */}
+        <h3>As of {reportDate}</h3>
       </div>
       <section>
         {analyzedReport.map((item) => {
