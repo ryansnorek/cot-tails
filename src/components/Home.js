@@ -4,6 +4,7 @@ import CotReport from "./CotReport";
 const initialFormValues = {
   year: 2021,
   deviation: 200,
+  search: "",
 };
 
 function Home() {
@@ -11,14 +12,25 @@ function Home() {
   const handleChange = (e) => {
     setFormValues({ 
       ...formValues,
-      [e.target.name]: Number(e.target.value) 
+      [e.target.name]: e.target.value
     });
   };
+
+
 
   return (
     <div className="wrapper">
       <header className="top">
       <h1>Commitment of Traders</h1>
+          <div className="search-bar">
+            <label for="search">Search:</label>
+            <input 
+              type="search" 
+              name="search"
+              value={formValues.search}
+              onChange={handleChange}
+            />
+          </div>
         <div className="user-select">
           <label>
             Comparison year

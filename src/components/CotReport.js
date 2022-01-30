@@ -16,7 +16,7 @@ function CotReport({ formValues }) {
         {analyzedReport.map((item) => {
 
             return (
-              <CotCard key={item.title} item={item}/>
+              <CotCard key={item.title} item={item} formValues={formValues}/>
             );
           })}
       </section>

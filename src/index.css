@@ -88,10 +88,16 @@ h1 {
 .report-data section {
   box-shadow: 0 0 1px inset #303030;
 }
+.report-data section {
+  box-shadow: 0 0 1px inset #303030;
+}
 
-.filter {
+.highlight {
   color: red;
   font-weight: bold;
+}
+.hide {
+  display: none;
 }
 
 @media (max-width: 415px) {

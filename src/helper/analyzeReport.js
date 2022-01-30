@@ -12,7 +12,7 @@ class FullReport {
 }
 class Analysis {
   constructor(
-    filter,
+    // filter,
     current_report,
     average,
     median,
@@ -23,7 +23,7 @@ class Analysis {
     from_max,
     from_min
   ) {
-    this.filter = filter;
+    // this.filter = filter;
     this.current_report = current_report;
     this.average = average;
     this.median = median;
@@ -60,13 +60,13 @@ export default function analyzeReport(cotReport, cotMetrics, deviation) {
       );
       let analysis = {};
       traderPositions.forEach((position, i) => {
-        const filter = markFilter(
-          reportItem[position],
-          itemMetrics[i].cot_mean,
-          deviation
-        );
+        // const filter = markFilter(
+        //   reportItem[position],
+        //   itemMetrics[i].cot_mean,
+        //   deviation
+        // );
         analysis[position] = new Analysis(
-          filter,
+          // filter,
           reportItem[position],
           itemMetrics[i].cot_mean,
           itemMetrics[i].cot_median,
