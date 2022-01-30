@@ -48,7 +48,7 @@ class WeekChange {
   }
 }
 
-export default function analyzeReport(cotReport, cotMetrics, deviation) {
+export default function analyzeReport(cotReport, cotMetrics) {
   const analysisReport = [];
   cotReport.length > 1 &&
     cotReport.forEach((reportItem) => {

@@ -5,7 +5,6 @@ function CotReport({ formValues }) {
 
   const [analyzedReport] = useReportData(formValues);
 
-  // console.log(analyzedReport)
   let reportDate = "";
   if (analyzedReport.length > 0) {
     reportDate = analyzedReport[0].date

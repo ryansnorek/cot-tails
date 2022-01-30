@@ -5,13 +5,14 @@ import { BACKEND_URL } from "../constants";
 import analyzeReport from "../helper/analyzeReport";
 
 export default function useReportData(formValues) {
-  const { year, deviation } = formValues;
+  const { year } = formValues;
   const [currentCotReport, setCurrentCotReport] = useState([]);
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [analyzedReport, setAnalyzedReport] = useState([]);
 
   console.log(formValues)
-  useEffect(function getCotReport() {
+  useEffect(
+    function getCotReport() {
     if (currentCotReport.length === 0) {
       axios
         .get(`${BACKEND_URL}/api/cot/report`)
@@ -27,7 +28,8 @@ export default function useReportData(formValues) {
     }
   }, []);
 
-  useEffect(function getMetrics() {
+  useEffect(
+    function getMetrics() {
     console.log("METRICS EFFECT")
     console.log(year)
       axios
@@ -46,7 +48,7 @@ export default function useReportData(formValues) {
         currentCotReport.length > 1 &&
         historyMetrics.length > 1 
       ) {
-        const report = analyzeReport(currentCotReport, historyMetrics, deviation);
+        const report = analyzeReport(currentCotReport, historyMetrics);
         setAnalyzedReport(report);
       }
     },
