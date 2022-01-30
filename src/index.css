@@ -30,7 +30,7 @@ html {
 .top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 10px;
 } 
 .user-select {
   padding: 3px 6px;
@@ -54,6 +54,7 @@ select {
 h1 {
   color: #303030;
   text-shadow: 0 0 1.3px #868686;
+  margin: 0;
   padding-left: 6px;
 }
 
@@ -105,6 +106,10 @@ h1 {
 }
 .hide {
   display: none;
+}
+.logo {
+  width: 33px;
+  padding: 5px;
 }
 @media (max-width: 840px) {
   .user-select {
