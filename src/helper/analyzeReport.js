@@ -1,5 +1,4 @@
 import getDeviation from "./getDeviation";
-import markFilter from "./markFilter";
 import { traderPositions } from "../constants";
 
 class FullReport {
@@ -12,7 +11,6 @@ class FullReport {
 }
 class Analysis {
   constructor(
-    // filter,
     current_report,
     average,
     median,
@@ -23,7 +21,6 @@ class Analysis {
     from_max,
     from_min
   ) {
-    // this.filter = filter;
     this.current_report = current_report;
     this.average = average;
     this.median = median;
@@ -60,13 +57,7 @@ export default function analyzeReport(cotReport, cotMetrics, deviation) {
       );
       let analysis = {};
       traderPositions.forEach((position, i) => {
-        // const filter = markFilter(
-        //   reportItem[position],
-        //   itemMetrics[i].cot_mean,
-        //   deviation
-        // );
         analysis[position] = new Analysis(
-          // filter,
           reportItem[position],
           itemMetrics[i].cot_mean,
           itemMetrics[i].cot_median,
