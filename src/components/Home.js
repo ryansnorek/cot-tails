@@ -19,7 +19,7 @@ function Home() {
   return (
     <div className="wrapper">
       <header className="top">
-        <img className="logo" src="../../logo.png" alt="logo"/>
+        <img className="logo" src="../../logo.png" alt="logo" />
         <h1>Commitment of Traders</h1>
         <div className="search-bar">
           <label htmlFor="search">Search:</label>

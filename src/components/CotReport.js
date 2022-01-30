@@ -9,7 +9,6 @@ function CotReport({ formValues }) {
     reportDate = analyzedReport[0].date;
   }
 
-  console.log("analyzed",analyzedReport)
   return (
     <div className="cot-report-wrapper">
       <div className="date">

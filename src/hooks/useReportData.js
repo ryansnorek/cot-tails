@@ -10,9 +10,7 @@ export default function useReportData(formValues) {
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [analyzedReport, setAnalyzedReport] = useState([]);
 
-  console.log(formValues)
-  useEffect(
-    function getCotReport() {
+  useEffect(function getCotReport() {
     if (currentCotReport.length === 0) {
       axios
         .get(`${BACKEND_URL}/api/cot/report`)
@@ -30,8 +28,6 @@ export default function useReportData(formValues) {
 
   useEffect(
     function getMetrics() {
-    // console.log("METRICS EFFECT")
-    // console.log(year)
       axios
         .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
         .then((metrics) => {
@@ -40,14 +36,13 @@ export default function useReportData(formValues) {
         .catch((err) => {
           console.error("Error fetching history metrics =-=--=-=", err);
         });
-  }, [year]);
+    },
+    [year]
+  );
 
   useEffect(
     function reportAnalysis() {
-      if (
-        currentCotReport.length > 1 &&
-        historyMetrics.length > 1 
-      ) {
+      if (currentCotReport.length > 1 && historyMetrics.length > 1) {
         const report = analyzeReport(currentCotReport, historyMetrics);
         setAnalyzedReport(report);
       }

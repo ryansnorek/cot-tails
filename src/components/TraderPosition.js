@@ -6,11 +6,7 @@ export default function TraderPosition({ item, title, trader, formValues }) {
   let highlight = false;
   if (from_average) {
     highlight = highlightRow(from_average, formValues);
-
   }
-  // let highlight = highlightRow(from_average, formValues);
-
-
   return (
     <section className={highlight ? "highlight" : ""}>
       <h4>{title}</h4>

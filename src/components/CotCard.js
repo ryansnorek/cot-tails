@@ -5,7 +5,7 @@ export default function CotCard({ item, formValues }) {
   const view = item.title.includes(search.toUpperCase()) || false;
 
   return (
-    <div className={`cot-card ${view ? "" : "hide"}`} >
+    <div className={`cot-card ${view ? "" : "hide"}`}>
       <header>
         <h2>{item.title}</h2>
       </header>
