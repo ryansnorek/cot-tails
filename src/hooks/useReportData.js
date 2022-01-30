@@ -10,7 +10,8 @@ export default function useReportData(formValues) {
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [analyzedReport, setAnalyzedReport] = useState([]);
 
-  useEffect(function getCotReport() {
+  useEffect(
+    function getCotReport() {
     if (currentCotReport.length === 0) {
       axios
         .get(`${BACKEND_URL}/api/cot/report`)
