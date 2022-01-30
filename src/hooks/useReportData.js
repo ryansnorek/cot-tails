@@ -30,8 +30,8 @@ export default function useReportData(formValues) {
 
   useEffect(
     function getMetrics() {
-    console.log("METRICS EFFECT")
-    console.log(year)
+    // console.log("METRICS EFFECT")
+    // console.log(year)
       axios
         .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
         .then((metrics) => {

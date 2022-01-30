@@ -2,14 +2,14 @@ import useReportData from "../hooks/useReportData";
 import CotCard from "./CotCard";
 
 function CotReport({ formValues }) {
-
   const [analyzedReport] = useReportData(formValues);
 
   let reportDate = "";
   if (analyzedReport.length > 0) {
-    reportDate = analyzedReport[0].date
+    reportDate = analyzedReport[0].date;
   }
 
+  console.log("analyzed",analyzedReport)
   return (
     <div className="cot-report-wrapper">
       <div className="date">
@@ -17,14 +17,12 @@ function CotReport({ formValues }) {
       </div>
       <section>
         {analyzedReport.map((item) => {
-
-            return (
-              <CotCard key={item.title} item={item} formValues={formValues}/>
-            );
-          })}
+          return (
+            <CotCard key={item.title} item={item} formValues={formValues} />
+          );
+        })}
       </section>
     </div>
-
   );
 }
 

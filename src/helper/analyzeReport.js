@@ -56,19 +56,28 @@ export default function analyzeReport(cotReport, cotMetrics) {
         (m) => reportItem.name === m.market_and_exchange_names
       );
       let analysis = {};
-      traderPositions.forEach((position, i) => {
-        analysis[position] = new Analysis(
-          reportItem[position],
-          itemMetrics[i].cot_mean,
-          itemMetrics[i].cot_median,
-          itemMetrics[i].cot_max,
-          itemMetrics[i].cot_min,
-          getDeviation(reportItem[position], itemMetrics[i].cot_mean),
-          getDeviation(reportItem[position], itemMetrics[i].cot_median),
-          getDeviation(reportItem[position], itemMetrics[i].cot_max),
-          getDeviation(reportItem[position], itemMetrics[i].cot_min)
-        );
-      });
+      console.log("NAME:", reportItem.name);
+      console.log("ITEM METRICS ", itemMetrics);
+
+      if (itemMetrics.length > 1) {
+        traderPositions.forEach((position, i) => {
+          analysis[position] = new Analysis(
+            reportItem[position],
+            itemMetrics[i].cot_mean,
+            itemMetrics[i].cot_median,
+            itemMetrics[i].cot_max,
+            itemMetrics[i].cot_min,
+            getDeviation(reportItem[position], itemMetrics[i].cot_mean),
+            getDeviation(reportItem[position], itemMetrics[i].cot_median),
+            getDeviation(reportItem[position], itemMetrics[i].cot_max),
+            getDeviation(reportItem[position], itemMetrics[i].cot_min)
+          );
+        });
+      } else {
+        traderPositions.forEach((position) => {
+          analysis[position] = { current_report: reportItem[position] };
+        });
+      }
       const weeklyChanges = new WeekChange(
         reportItem.open_interest_change,
         reportItem.asset_mgr_long_change,
