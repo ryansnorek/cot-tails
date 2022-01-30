@@ -57,10 +57,9 @@ h1 {
   margin: 0;
   padding-left: 6px;
 }
-
 .date h3 {
-  margin: 0;
   padding-left: 6px;
+  margin: 0;
   font-weight: 600;
 }
 .cot-card {
@@ -86,7 +85,9 @@ h1 {
 }
 .report-analysis .titles {
   background-color: #ebe9e9;
-  font-size: 1rem;
+}
+.titles h3 {
+  font-size: 0.6rem;
 }
 .report-analysis section p,
 .report-analysis section h4 {
@@ -102,7 +103,6 @@ h1 {
 
 .highlight {
   color: red;
-  font-weight: bold;
 }
 .hide {
   display: none;

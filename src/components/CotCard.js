@@ -14,8 +14,8 @@ export default function CotCard({ item, formValues }) {
           <h3>Trader Position</h3>
           <h3>Current report</h3>
           <h3>Week change</h3>
-          <h3>Average position</h3>
-          <h3>Deviation</h3>
+          <h3>{formValues.year} average</h3>
+          <h3>Deviation from average</h3>
         </section>
         <div className="report-data">
           <TraderPosition

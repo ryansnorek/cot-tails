@@ -9,7 +9,7 @@ export default function TraderPosition({ item, title, trader, formValues }) {
   }
   return (
     <section className={highlight ? "highlight" : ""}>
-      <h4>{title}</h4>
+      <p>{title}</p>
       <p>{current_report.toLocaleString()}</p>
       <p>{weekChange[`${trader}`].toLocaleString()}</p>
       <p>{average ? average.toLocaleString() : "unavailable"}</p>
