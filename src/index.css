@@ -43,6 +43,8 @@ html {
   margin-left: 6px;
   font-size: 1rem;
   display: flex;
+  flex-direction: column;
+  text-align: right;
 }
 select {
   margin: 0.3rem;
