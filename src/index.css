@@ -13,9 +13,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-html {
-  background-color: #fafafa;
-}
 .wrapper {
   width: 100vw;
   height: 100%;
@@ -23,7 +20,7 @@ html {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: #ebe9e9;
+  background-color: #d8d6d6;
   align-items: center;
 }
 * {
@@ -34,7 +31,7 @@ html {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  background-color: #ebe9e9;
+  background-color: #d8d6d6;
   height: fit-content;
   width: 100vw;
   z-index: 3;

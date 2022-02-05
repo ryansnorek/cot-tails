@@ -6,7 +6,7 @@ export default function Header({ formValues, handleChange, reportDate }) {
         <h1>Commitment of Traders</h1>
       </div>
       <div className="date">
-        <h3>As of {reportDate}</h3>
+        <h3>Financial Futures as of {reportDate}</h3>
       </div>
       <div className="filters">
           <input
