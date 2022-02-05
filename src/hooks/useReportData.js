@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import cleanReport from "../helper/cleanReport";
 import { BACKEND_URL } from "../constants";
 import analyzeReport from "../helper/analyzeReport";
@@ -12,7 +12,6 @@ export default function useReportData(formValues) {
 
 
   useEffect(function getCotReport() {
-    console.log("getting report")
     axios
       .get(`${BACKEND_URL}/api/cot/report`)
       .then((report) => {
@@ -28,7 +27,6 @@ export default function useReportData(formValues) {
 
   useEffect(
     function getMetrics() {
-      console.log("getting metrics")
       axios
         .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
         .then((metrics) => {
