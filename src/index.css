@@ -213,3 +213,8 @@ h1 {
     font-size: 1.2rem;
   }
 }
+@media (max-width: 266px) {
+  .cot-report-wrapper {
+    margin-top: 27vh;
+  }
+} 
