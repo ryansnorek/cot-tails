@@ -29,14 +29,24 @@ html {
 }
 .top {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
   position: fixed;
   background-color: #ebe9e9;
-  height: 15vh;
+  height: fit-content;
   width: 100vw;
   z-index: 3;
   top: 0;
+}
+.title {
+  display: flex;
+  align-items: center;
+}
+.filters {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 .user-select {
   padding: 3px 6px;
@@ -51,24 +61,21 @@ select {
 }
 .search-bar,
 .search-bar input {
-  font-size: 1rem;
-
+  font-size: 1.5rem;
+  padding: 0.5rem;
 }
-
 .cot-report-wrapper {
   background-color: #ebe9e9;
   box-shadow: 0 0 1px #868686;
   overflow: scroll;
   height: 100vh;
   width: 100vw;
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
-
 h1 {
   color: #303030;
   text-shadow: 0 0 1.3px #868686;
   margin: 0;
-  padding-left: 6px;
 }
 .date h3 {
   padding-left: 6px;
@@ -132,44 +139,51 @@ h1 {
   margin-top: 20vh;
 }
 .loading {
-  border: 16px solid #f3f3f3; 
+  border: 16px solid #f3f3f3;
   border-top: 16px solid #2b3135;
   border-radius: 50%;
   width: 90px;
   height: 90px;
   -webkit-animation: spin 2s linear infinite; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: spin 2s linear infinite; /* Firefox < 16 */
-   -ms-animation: spin 2s linear infinite; /* Internet Explorer */
-    -o-animation: spin 2s linear infinite; /* Opera < 12.1 */
-       animation: spin 2s linear infinite;
+  -ms-animation: spin 2s linear infinite; /* Internet Explorer */
+  -o-animation: spin 2s linear infinite; /* Opera < 12.1 */
+  animation: spin 2s linear infinite;
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 @-moz-keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-@media (max-width: 840px) {
-  .user-select {
-    flex-direction: column;
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
-@media (max-width: 415px) {
-  .top {
-    flex-direction: column;
-    height: 22vh;
+
+@media (max-width: 492px) {
+  .filters {
+    justify-content: center;
   }
-  .cot-report-wrapper {
-    margin-top: 22vh;
+  .search-bar,
+  .search-bar input {
+    font-size: 1rem;
+    padding: 0.5rem;
   }
   .titles h3 {
     font-size: 0.5rem;
@@ -182,12 +196,12 @@ h1 {
     flex-direction: column;
   }
 }
-@media (max-width: 375px) {
-  .top {
+@media (max-width: 405px) {
+  .filters {
     flex-direction: column;
-    height: 30vh;
+
   }
   .cot-report-wrapper {
-    margin-top: 30vh;
+    margin-top: 15vh;
   }
 }
