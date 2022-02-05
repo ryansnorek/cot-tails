@@ -39,6 +39,7 @@ export default function Header({ formValues, handleChange }) {
             value={formValues.deviation}
             onChange={handleChange}
           >
+            <option value={0}>None</option>
             <option value={200}>200%</option>
             <option value={150}>150%</option>
             <option value={125}>125%</option>

@@ -4,7 +4,7 @@ export default function TraderPosition({ item, title, trader, formValues }) {
   const { analysis, weekChange } = item;
   const { current_report, average, from_average } = analysis[`${trader}`];
   let highlight = false;
-  if (from_average) {
+  if (from_average && formValues.deviation > 0) {
     highlight = highlightRow(from_average, formValues);
   }
   return (

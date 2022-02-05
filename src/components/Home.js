@@ -4,7 +4,7 @@ import Header from "./Header";
 
 const initialFormValues = {
   year: "2021",
-  deviation: 200,
+  deviation: 0,
   search: "",
 };
 
