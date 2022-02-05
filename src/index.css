@@ -32,7 +32,7 @@ code {
   align-items: center;
   position: fixed;
   background-color: #d8d6d6;
-  height: fit-content;
+  height: 18vh;
   width: 100vw;
   z-index: 3;
   top: 0;
@@ -209,6 +209,9 @@ h1 {
   .cot-report-wrapper {
     margin-top: 25vh;
   }
+  .top {
+    height: 25vh;
+  }
   select {
     font-size: 1.2rem;
   }
@@ -216,5 +219,8 @@ h1 {
 @media (max-width: 266px) {
   .cot-report-wrapper {
     margin-top: 30vh;
+  }
+  .top {
+    height: 30vh;
   }
 } 
