@@ -7,6 +7,13 @@ export const traderPositions = [
   "lev_money_long",
   "lev_money_short",
 ];
+export const titles = [
+  "Open Interest",
+  "Asset Managers Long",
+  "Asset Managers Short",
+  "Leveraged Money Long",
+  "Leveraged Money Short"
+]
 export const fields = [
     "Market_and_Exchange_Names",
     "As_of_Date_In_Form_YYMMDD",

@@ -1,4 +1,5 @@
 import TraderPosition from "./TraderPosition";
+import { traderPositions, titles } from "../constants";
 
 export default function CotCard({ item, formValues }) {
   const { search } = formValues;
@@ -18,36 +19,16 @@ export default function CotCard({ item, formValues }) {
           <h3>Deviation from average</h3>
         </section>
         <div className="report-data">
-          <TraderPosition
-            item={item}
-            title={"Open Interest"}
-            trader={"open_interest"}
-            formValues={formValues}
-          />
-          <TraderPosition
-            item={item}
-            title={"Asset Managers Long"}
-            trader={"asset_mgr_long"}
-            formValues={formValues}
-          />
-          <TraderPosition
-            item={item}
-            title={"Asset Managers Short"}
-            trader={"asset_mgr_short"}
-            formValues={formValues}
-          />
-          <TraderPosition
-            item={item}
-            title={"Leveraged Money Long"}
-            trader={"lev_money_long"}
-            formValues={formValues}
-          />
-          <TraderPosition
-            item={item}
-            title={"Leveraged Money Short"}
-            trader={"lev_money_short"}
-            formValues={formValues}
-          />
+          {traderPositions.map((trader, idx) => {
+            return (
+              <TraderPosition 
+                item={item}
+                title={titles[idx]}
+                trader={trader}
+                formValues={formValues}
+              />
+            )
+          })}
         </div>
       </div>
     </div>
