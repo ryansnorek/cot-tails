@@ -1,6 +1,5 @@
 import useReportData from "../hooks/useReportData";
 import CotCard from "./CotCard";
-import ProgressBar from "./ProgressBar";
 
 function CotReport({ formValues }) {
   const [analyzedReport] = useReportData(formValues);
@@ -11,7 +10,11 @@ function CotReport({ formValues }) {
   }
 
   if (!analyzedReport.length > 1) {
-    return <ProgressBar bgcolor="#99ccff" progress='95'  height={30} />
+    return (
+      <div className="loading-container">
+        <div className="loading"></div>
+      </div>
+    );
   }
   return (
     <div className="cot-report-wrapper">
@@ -21,11 +24,7 @@ function CotReport({ formValues }) {
       <section>
         {analyzedReport.map((item) => {
           return (
-            <CotCard 
-              key={item.title} 
-              item={item} 
-              formValues={formValues} 
-            />
+            <CotCard key={item.title} item={item} formValues={formValues} />
           );
         })}
       </section>
