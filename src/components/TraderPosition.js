@@ -8,7 +8,7 @@ export default function TraderPosition({ item, title, trader, formValues }) {
     highlight = highlightRow(from_average, formValues);
   }
   return (
-    <section className={highlight ? "highlight" : ""}>
+    <section className={highlight && "highlight"}>
       <p>{title}</p>
       <p>{current_report.toLocaleString()}</p>
       <p>{weekChange[`${trader}`].toLocaleString()}</p>

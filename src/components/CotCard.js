@@ -4,7 +4,6 @@ import viewItem from "../helper/viewItem";
 
 export default function CotCard({ item, formValues }) {
   const { search, deviation } = formValues;
- 
   const toggleView = viewItem(search, deviation, item);
 
   return (

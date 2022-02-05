@@ -9,6 +9,9 @@ function CotReport({ formValues }) {
     reportDate = analyzedReport[0].date;
   }
 
+  if (!analyzedReport.length > 1) {
+    return <h1>Loading</h1>
+  }
   return (
     <div className="cot-report-wrapper">
       <div className="date">
