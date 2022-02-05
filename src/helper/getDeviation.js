@@ -6,7 +6,7 @@ export default function getDeviation(reportValue, metricsValue) {
       return 100 + "% ";
     }
     const change = (((reportValue - metricsValue) / metricsValue) * 100).toFixed(2);
-    return change + "% ";
+    return change.toLocaleString() + "% ";
   };
-  return percentChange(reportValue, metricsValue).toLocaleString();
+  return percentChange(reportValue, metricsValue);
 }
