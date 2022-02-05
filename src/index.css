@@ -76,7 +76,7 @@ select {
   overflow: scroll;
   height: 100vh;
   width: 100vw;
-  margin-top: 10vh;
+  margin-top: 18vh;
 }
 h1 {
   color: #303030;
@@ -182,7 +182,7 @@ h1 {
   }
 }
 
-@media (max-width: 492px) {
+@media (max-width: 540px) {
   .search-bar {
     font-size: 1rem;
     padding: 0.5rem;
@@ -196,9 +196,6 @@ h1 {
   .user-select {
     display: flex;
     flex-direction: column;
-  }
-  .cot-report-wrapper {
-    margin-top: 13vh;
   }
 }
 @media (max-width: 405px) {
