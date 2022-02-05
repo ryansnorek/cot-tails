@@ -6,15 +6,14 @@ export default function Header({ formValues, handleChange }) {
         <h1>Commitment of Traders</h1>
       </div>
       <div className="filters">
-        <div className="search-bar">
           <input
+            className="search-bar"
             type="search"
             name="search"
             placeholder="Search assets"
             value={formValues.search}
             onChange={handleChange}
           />
-        </div>
         <div className="user-select">
           <label>
             Comparison year
