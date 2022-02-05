@@ -50,6 +50,7 @@ select {
 .search-bar,
 .search-bar input {
   font-size: 1rem;
+
 }
 
 .cot-report-wrapper {
@@ -129,6 +130,10 @@ h1 {
 @media (max-width: 415px) {
   .top {
     flex-direction: column;
+    height: 22vh;
+  }
+  .cot-report-wrapper {
+    margin-top: 22vh;
   }
   .titles h3 {
     font-size: 0.5rem;
