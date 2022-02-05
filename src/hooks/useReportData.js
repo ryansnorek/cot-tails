@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import cleanReport from "../helper/cleanReport";
 import { BACKEND_URL } from "../constants";
 import analyzeReport from "../helper/analyzeReport";
@@ -10,8 +10,9 @@ export default function useReportData(formValues) {
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [analyzedReport, setAnalyzedReport] = useState([]);
 
+
   useEffect(function getCotReport() {
-    console.log("report")
+    console.log("getting report")
     axios
       .get(`${BACKEND_URL}/api/cot/report`)
       .then((report) => {
@@ -25,8 +26,9 @@ export default function useReportData(formValues) {
       });
   }, []);
 
-  useEffect(function getMetrics() {
-    console.log("metrics")
+  useEffect(
+    function getMetrics() {
+      console.log("getting metrics")
       axios
         .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
         .then((metrics) => {
@@ -38,14 +40,18 @@ export default function useReportData(formValues) {
     },
     [year]
   );
- 
-  useEffect(function reportAnalysis() {
+
+  const report = useMemo(() => {
+    return analyzeReport(currentCotReport, historyMetrics);
+  }, [currentCotReport, historyMetrics]);
+
+  useEffect(
+    function reportAnalysis() {
       if (currentCotReport.length > 1 && historyMetrics.length > 1) {
-        const report = analyzeReport(currentCotReport, historyMetrics);
         setAnalyzedReport(report);
       }
     },
-    [historyMetrics, currentCotReport, year]
+    [historyMetrics, currentCotReport, year, report]
   );
 
   return [analyzedReport];
