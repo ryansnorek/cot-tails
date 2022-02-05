@@ -57,6 +57,7 @@ code {
 select {
   margin: 0.3rem;
   color: #3f3f3f;
+  outline: none;
 }
 .search-bar {
   font-size: 1.5rem;
@@ -125,6 +126,7 @@ h1 {
 
 .highlight {
   color: #eb8e02;
+  font-weight: bold;
 }
 .hide {
   display: none;
