@@ -56,9 +56,6 @@ export default function analyzeReport(cotReport, cotMetrics) {
         (m) => reportItem.name === m.market_and_exchange_names
       );
       let analysis = {};
-      console.log("NAME:", reportItem.name);
-      console.log("ITEM METRICS ", itemMetrics);
-
       if (itemMetrics.length > 1) {
         traderPositions.forEach((position, i) => {
           analysis[position] = new Analysis(
