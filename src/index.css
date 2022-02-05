@@ -1,6 +1,7 @@
 body {
   margin: 0 auto;
   font-size: 62.5%;
+  color: #3f3f3f;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -59,12 +60,15 @@ html {
 }
 select {
   margin: 0.3rem;
+  color: #3f3f3f;
 }
 .search-bar {
   font-size: 1.5rem;
   padding: 0.5rem;
   width: 50%;
   border: none;
+  outline: none;
+  color: #3f3f3f;
 }
 .cot-report-wrapper {
   background-color: #ebe9e9;
