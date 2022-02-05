@@ -19,7 +19,7 @@ export default function Header({ formValues, handleChange, reportDate }) {
           />
         <div className="user-select">
           <label>
-            Comparison year
+            Comparing year
             <select
               name="year"
               className="dropdown"

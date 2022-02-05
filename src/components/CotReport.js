@@ -4,7 +4,6 @@ import CotCard from "./CotCard";
 function CotReport({ formValues, setReportDate }) {
   const [analyzedReport] = useReportData(formValues);
 
-  let reportDate = "";
   if (analyzedReport.length > 0) {
     setReportDate(analyzedReport[0].date);
   }
