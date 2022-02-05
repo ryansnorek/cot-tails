@@ -1,12 +1,14 @@
 import TraderPosition from "./TraderPosition";
 import { traderPositions, titles } from "../constants";
+import viewItem from "../helper/viewItem";
 
 export default function CotCard({ item, formValues }) {
-  const { search } = formValues;
-  const view = item.title.includes(search.toUpperCase()) || false;
+  const { search, deviation } = formValues;
+ 
+  const toggleView = viewItem(search, deviation, item);
 
   return (
-    <div className={`cot-card ${view ? "" : "hide"}`}>
+    <div className={`cot-card ${!toggleView && "hide"}`}>
       <header>
         <h2>{item.title}</h2>
       </header>
