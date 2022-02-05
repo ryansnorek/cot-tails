@@ -9,6 +9,7 @@ const initialFormValues = {
 };
 
 function Home() {
+  const [reportDate, setReportDate] = useState("");
   const [formValues, setFormValues] = useState(initialFormValues);
   const handleChange = (e) => {
     setFormValues({
@@ -19,8 +20,8 @@ function Home() {
 
   return (
     <div className="wrapper">
-      <Header formValues={formValues} handleChange={handleChange}/>
-      <CotReport formValues={formValues} />
+      <Header formValues={formValues} handleChange={handleChange} reportDate={reportDate}/>
+      <CotReport formValues={formValues} setReportDate={setReportDate}/>
     </div>
   );
 }

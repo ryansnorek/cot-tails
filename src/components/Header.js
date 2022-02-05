@@ -1,9 +1,12 @@
-export default function Header({ formValues, handleChange }) {
+export default function Header({ formValues, handleChange, reportDate }) {
   return (
     <header className="top">
       <div className="title">
         <img className="logo" src="../../logo.png" alt="logo" />
         <h1>Commitment of Traders</h1>
+      </div>
+      <div className="date">
+        <h3>As of {reportDate}</h3>
       </div>
       <div className="filters">
           <input

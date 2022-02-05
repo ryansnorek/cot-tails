@@ -1,12 +1,12 @@
 import useReportData from "../hooks/useReportData";
 import CotCard from "./CotCard";
 
-function CotReport({ formValues }) {
+function CotReport({ formValues, setReportDate }) {
   const [analyzedReport] = useReportData(formValues);
 
   let reportDate = "";
   if (analyzedReport.length > 0) {
-    reportDate = analyzedReport[0].date;
+    setReportDate(analyzedReport[0].date);
   }
 
   if (!analyzedReport.length > 1) {
@@ -18,9 +18,6 @@ function CotReport({ formValues }) {
   }
   return (
     <div className="cot-report-wrapper">
-      <div className="date">
-        <h3>As of {reportDate}</h3>
-      </div>
       <section>
         {analyzedReport.map((item) => {
           return (
