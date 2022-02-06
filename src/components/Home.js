@@ -10,6 +10,7 @@ const initialFormValues = {
 
 function Home() {
   const [reportDate, setReportDate] = useState("");
+  console.log(reportDate, "from home")
   const [formValues, setFormValues] = useState(initialFormValues);
   const handleChange = (e) => {
     setFormValues({

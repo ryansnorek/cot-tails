@@ -1,23 +1,17 @@
-import { useMemo, useEffect } from "react";
+import { useEffect } from "react";
 import useReportData from "../hooks/useReportData";
 import CotCard from "./CotCard";
 
 function CotReport({ formValues, setReportDate }) {
   const [analyzedReport] = useReportData(formValues);
 
-  const reportDate = useMemo(() => {
-    if (analyzedReport.length > 0) {
-    return analyzedReport[0].date || "";
-    }
-  }, [analyzedReport]);
-
   useEffect(() => {
-    if (analyzedReport.length > 0) {
-      setReportDate(reportDate);
+    if (analyzedReport.length > 1) {
+      setReportDate(analyzedReport[0].date);
     }
-  }, [analyzedReport, reportDate, setReportDate]);
+  }, [analyzedReport, setReportDate]);
 
-  if (!(analyzedReport.length > 0)) {
+  if (!(analyzedReport.length > 1)) {
     return (
       <div className="loading-container">
         <div className="loading"></div>
