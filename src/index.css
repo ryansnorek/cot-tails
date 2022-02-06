@@ -20,8 +20,6 @@ code {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background-color: #d8d6d6;
-  align-items: center;
 }
 * {
   /* border: 1px solid red; */
@@ -68,12 +66,17 @@ select {
   color: #3f3f3f;
 }
 .cot-report-wrapper {
-  background-color: #ebe9e9;
+  background-color: #d8d6d6;
   box-shadow: 0 0 1px #868686;
   overflow: scroll;
   height: 100vh;
-  width: 82vw;
+  width: 100vw;
   margin-top: 18vh;
+  display: flex;
+  justify-content: center;
+}
+.report {
+  width: 78%;
 }
 h1 {
   color: #303030;

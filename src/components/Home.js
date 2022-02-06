@@ -20,8 +20,15 @@ function Home() {
 
   return (
     <div className="wrapper">
-      <Header formValues={formValues} handleChange={handleChange} reportDate={reportDate}/>
-      <CotReport formValues={formValues} setReportDate={setReportDate}/>
+      <Header
+        formValues={formValues}
+        handleChange={handleChange}
+        reportDate={reportDate}
+      />
+      <CotReport
+        formValues={formValues}
+        setReportDate={setReportDate}
+      />
     </div>
   );
 }
