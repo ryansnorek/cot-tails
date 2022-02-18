@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import useReportData from "../hooks/useReportData";
 import CotCard from "./CotCard";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function CotReport({ formValues, setReportDate }) {
   const [analyzedReport] = useReportData(formValues);
@@ -11,22 +13,16 @@ function CotReport({ formValues, setReportDate }) {
     }
   }, [analyzedReport, setReportDate]);
 
-  if (!(analyzedReport.length > 1)) {
-    return (
-      <div className="loading-container">
-        <div className="loading"></div>
-      </div>
-    );
-  }
   return (
     <div className="cot-report-wrapper">
-        <section className="report">
-          {analyzedReport.map((item) => {
-            return (
-              <CotCard key={item.title} item={item} formValues={formValues} />
-            );
-          })}
-        </section>
+      <section className="report">
+        {analyzedReport.map((item) => {
+          return (
+            <CotCard key={item.title} item={item} formValues={formValues} />
+          );
+        })}
+        || <Skeleton />
+      </section>
     </div>
   );
 }
