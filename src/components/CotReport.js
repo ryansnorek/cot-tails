@@ -21,7 +21,7 @@ function CotReport({ formValues, setReportDate }) {
             <CotCard key={item.title} item={item} formValues={formValues} />
           );
         })}
-        || <Skeleton count={6} />
+        || <Skeleton />
       </section>
     </div>
   );
