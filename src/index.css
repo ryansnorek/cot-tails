@@ -75,8 +75,9 @@ select {
   display: flex;
   justify-content: center;
 }
-.report {
+.report, .skeleton {
   width: 78%;
+  margin-bottom: 500px;
 }
 h1 {
   color: #303030;
@@ -137,51 +138,6 @@ h1 {
 .logo {
   width: 33px;
   padding: 5px;
-}
-/* Loading */
-.loading-container {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  margin-top: 20vh;
-}
-.loading {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #2b3135;
-  border-radius: 50%;
-  width: 90px;
-  height: 90px;
-  -webkit-animation: spin 2s linear infinite; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: spin 2s linear infinite; /* Firefox < 16 */
-  -ms-animation: spin 2s linear infinite; /* Internet Explorer */
-  -o-animation: spin 2s linear infinite; /* Opera < 12.1 */
-  animation: spin 2s linear infinite;
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@-moz-keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @media (max-width: 540px) {
