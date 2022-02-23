@@ -16,11 +16,15 @@ function CotReport({ formValues, setReportDate }) {
   return (
     <div className="cot-report-wrapper">
       <section className="report">
-        {analyzedReport.map((item) => {
-          return (
-            <CotCard key={item.title} item={item} formValues={formValues} />
-          );
-        }) || <Skeleton count={6} containerClassName="skeleton" height={150} />}
+        {analyzedReport.length < 1 ? (
+          <Skeleton count={6} containerClassName="skeleton" height={150} />
+        ) : (
+          analyzedReport.map((item) => {
+            return (
+              <CotCard key={item.title} item={item} formValues={formValues} />
+            );
+          })
+        )}
       </section>
     </div>
   );
