@@ -1,14 +1,11 @@
 export default function Header({ formValues, handleChange, reportDate }) {
   return (
     <header className="top">
+      <div className="filters">
       <div className="title">
         <img className="logo" src="../../logo.png" alt="logo" />
-        <h1>Commitment of Traders</h1>
+        <h1>CoT-tails</h1>
       </div>
-      <div className="date">
-        <h3>Financial Futures as of {reportDate}</h3>
-      </div>
-      <div className="filters">
           <input
             className="search-bar"
             type="search"
@@ -56,6 +53,9 @@ export default function Header({ formValues, handleChange, reportDate }) {
           </label>
         </div>
       </div>
+        {/* <div className="date">
+        <h3>Financial Futures as of {reportDate}</h3>
+      </div> */}
     </header>
   );
 }
