@@ -1,10 +1,18 @@
-export default function Header({ formValues, handleChange, scrolling }) {
+export default function Header({
+  formValues,
+  handleChange,
+  reportDate,
+  scrolling,
+}) {
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
         <div className="title">
           <img className="logo" src="../../logo.png" alt="logo" />
-          <h1>CoT-tails</h1>
+          <div>
+            <h1>CoT-tails</h1>
+            <p className="date">{reportDate}</p>
+          </div>
         </div>
         <input
           className="search-bar"
@@ -53,9 +61,6 @@ export default function Header({ formValues, handleChange, scrolling }) {
           </label>
         </div>
       </div>
-      {/* <div className="date">
-        <h3>Financial Futures as of {reportDate}</h3>
-      </div> */}
     </header>
   );
 }

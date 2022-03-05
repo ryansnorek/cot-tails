@@ -64,7 +64,7 @@ select {
   outline: none;
 }
 .search-bar {
-  font-size: 1.5rem;
+  font-size: 1rem;
   padding: 0.5rem;
   width: 50%;
   border: none;
@@ -92,10 +92,11 @@ h1 {
   text-shadow: 0 0 1.3px #868686;
   margin: 0;
 }
-.date h3 {
+.date {
   margin: 0;
   padding: 0;
   font-weight: 600;
+  font-size: 0.5rem;
 }
 .cot-card {
   box-shadow: 0 0 1px #868686;
@@ -104,9 +105,11 @@ h1 {
   margin: 0;
   font-size: 1rem;
 }
-.cot-card h2 {
+.cot-card header {
   background-color: #303030;
   color: snow;
+}
+.cot-card h2 {
   margin: 0;
   padding: 0.3rem;
   font-size: 1rem;
