@@ -15,7 +15,7 @@ function CotReport({ formValues, setReportDate, setScrolling }) {
 
   const handleScrollEffect = () => {
     const element = document.querySelector(".cot-report-wrapper");
-    setScrolling(element.scrollTop > 5)
+    setScrolling(element.scrollTop > 33)
   }
 
   return (

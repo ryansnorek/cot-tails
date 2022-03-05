@@ -34,10 +34,11 @@ code {
   height: fit-content;
   z-index: 3;
   top: 0;
-  border-bottom: 1px solid #4f4f4f;
+  box-shadow: 0 0 5px #4f4f4f;
+  transition: 0.33s ease-in;
 }
 .scroll-shadow {
-  box-shadow: 0 0 30px #4f4f4f;
+  box-shadow: 0 0 33px #4f4f4f;
   border-bottom: none;
 }
 .title {
