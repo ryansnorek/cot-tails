@@ -39,7 +39,6 @@ code {
 }
 .scroll-shadow {
   box-shadow: 0 0 33px #4f4f4f;
-  border-bottom: none;
 }
 .title {
   display: flex;
@@ -83,7 +82,8 @@ select {
   display: flex;
   justify-content: center;
 }
-.report, .skeleton {
+.report,
+.skeleton {
   width: 78%;
   margin-bottom: 500px;
 }
@@ -147,11 +147,12 @@ h1 {
   width: 33px;
   padding: 5px;
 }
-
-@media (max-width: 540px) {
-  .cot-report-wrapper {
+@media (max-width: 765px) {
+  .report {
     width: 100vw;
   }
+}
+@media (max-width: 593px) {
   .search-bar {
     font-size: 1rem;
     padding: 0.5rem;
@@ -163,12 +164,8 @@ h1 {
   .report-data h4 {
     font-size: 0.5rem;
   }
-  .user-select {
-    display: flex;
-    flex-direction: column;
-  }
 }
-@media (max-width: 405px) {
+@media (max-width: 444px) {
   .search-bar {
     width: 90%;
   }
@@ -176,13 +173,12 @@ h1 {
     flex-direction: column;
   }
   .cot-report-wrapper {
-    margin-top: 25vh;
+    margin-top: 15vh;
   }
-  .top {
-    height: 25vh;
-  }
-  select {
-    font-size: 1.2rem;
+  .user-select {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
   }
 }
 @media (max-width: 266px) {
@@ -192,4 +188,4 @@ h1 {
   .top {
     height: 30vh;
   }
-} 
+}

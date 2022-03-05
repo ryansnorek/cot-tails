@@ -1,5 +1,4 @@
 export default function Header({ formValues, handleChange, scrolling }) {
-  console.log(scrolling);
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
@@ -17,7 +16,7 @@ export default function Header({ formValues, handleChange, scrolling }) {
         />
         <div className="user-select">
           <label>
-            Comparing year
+            Comparing
             <select
               name="year"
               className="dropdown"
@@ -35,7 +34,7 @@ export default function Header({ formValues, handleChange, scrolling }) {
             </select>
           </label>
           <label>
-            Deviation filter
+            Filtering
             <select
               name="deviation"
               className="dropdown"
