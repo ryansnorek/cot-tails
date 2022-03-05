@@ -9,7 +9,7 @@ export default function Header({
       <div className="filters">
         <div className="title">
           <img className="logo" src="../../logo.png" alt="logo" />
-          <div>
+          <div className="inner">
             <h1>CoT-tails</h1>
             <p className="date">{reportDate}</p>
           </div>
