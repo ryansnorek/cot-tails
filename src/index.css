@@ -34,7 +34,11 @@ code {
   height: fit-content;
   z-index: 3;
   top: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #4f4f4f;
+}
+.scroll-shadow {
+  box-shadow: 0 0 30px #4f4f4f;
+  border-bottom: none;
 }
 .title {
   display: flex;

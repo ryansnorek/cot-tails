@@ -10,6 +10,7 @@ const initialFormValues = {
 
 function Home() {
   const [reportDate, setReportDate] = useState("");
+  const [scrolling, setScrolling] = useState(false);
   const [formValues, setFormValues] = useState(initialFormValues);
   const handleChange = (e) => {
     setFormValues({
@@ -18,16 +19,19 @@ function Home() {
     });
   };
 
+
   return (
     <div className="wrapper">
       <Header
         formValues={formValues}
         handleChange={handleChange}
         reportDate={reportDate}
+        scrolling={scrolling}
       />
       <CotReport
         formValues={formValues}
         setReportDate={setReportDate}
+        setScrolling={setScrolling}
       />
     </div>
   );

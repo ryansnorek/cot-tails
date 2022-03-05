@@ -1,19 +1,20 @@
-export default function Header({ formValues, handleChange, reportDate }) {
+export default function Header({ formValues, handleChange, scrolling }) {
+  console.log(scrolling);
   return (
-    <header className="top">
+    <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
-      <div className="title">
-        <img className="logo" src="../../logo.png" alt="logo" />
-        <h1>CoT-tails</h1>
-      </div>
-          <input
-            className="search-bar"
-            type="search"
-            name="search"
-            placeholder="Search assets"
-            value={formValues.search}
-            onChange={handleChange}
-          />
+        <div className="title">
+          <img className="logo" src="../../logo.png" alt="logo" />
+          <h1>CoT-tails</h1>
+        </div>
+        <input
+          className="search-bar"
+          type="search"
+          name="search"
+          placeholder="Search assets"
+          value={formValues.search}
+          onChange={handleChange}
+        />
         <div className="user-select">
           <label>
             Comparing year
@@ -53,7 +54,7 @@ export default function Header({ formValues, handleChange, reportDate }) {
           </label>
         </div>
       </div>
-        {/* <div className="date">
+      {/* <div className="date">
         <h3>Financial Futures as of {reportDate}</h3>
       </div> */}
     </header>
