@@ -1,25 +1,19 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { cotReportContext, formsContext } from "../contexts";
 
-export default function Header({
-  formValues,
-  handleChange,
-  reportDate,
-  scrolling,
-}) {
-  const [hide, setHide] = useState(true);
-  const handleClick = () => {
-    setHide(!hide);
-  };
+export default function Header() {
+  const { reportDate } = useContext(cotReportContext);
+  const { formValues, handleChange, scrolling } = useContext(formsContext);
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
         <nav role="navigation">
           <div id="menuToggle">
-            <input type="checkbox" onClick={handleClick} />
+            <input type="checkbox" />
             <span></span>
             <span></span>
             <span></span>
-            <ul id="menu" className={!hide && "show"}>
+            <ul id="menu">
               <a href="#">
                 <li>CoT Report</li>
               </a>

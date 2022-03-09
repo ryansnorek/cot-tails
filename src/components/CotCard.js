@@ -1,8 +1,11 @@
 import TraderPosition from "./TraderPosition";
 import { traderPositions, titles } from "../constants";
 import viewItem from "../helper/viewItem";
+import { formsContext } from "../contexts";
+import { useContext } from "react";
 
-export default function CotCard({ item, formValues }) {
+export default function CotCard({ item }) {
+  const { formValues } = useContext(formsContext);
   const { search, deviation } = formValues;
   const toggleView = viewItem(search, deviation, item);
 
