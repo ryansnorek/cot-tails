@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import CotTails from './CotTails';
-import Home from './components/Home';
+import CotTails from "./CotTails";
 
 ReactDOM.render(
-    <Home />,
+    <CotTails />,
   document.getElementById('root')
 );
