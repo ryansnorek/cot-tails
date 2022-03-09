@@ -9,7 +9,7 @@ export default function Header({
   const [hide, setHide] = useState(true);
   const handleClick = () => {
     setHide(!hide);
-  }
+  };
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">

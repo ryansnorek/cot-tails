@@ -9,6 +9,7 @@ export default function useReportData(formValues) {
   const [currentCotReport, setCurrentCotReport] = useState([]);
   const [historyMetrics, setHistoryMetrics] = useState([]);
   const [analyzedReport, setAnalyzedReport] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(
     function getCotReport() {
@@ -27,6 +28,7 @@ export default function useReportData(formValues) {
 
   useEffect(
     function getMetrics() {
+      setIsLoading(true);
       axios
         .get(`${BACKEND_URL}/api/cot/history/metrics/${year}`)
         .then((metrics) => {
@@ -34,7 +36,7 @@ export default function useReportData(formValues) {
         })
         .catch((err) => {
           console.error("Error fetching history metrics =-=--=-=", err);
-        });
+        })
     },
     [year]
   );
@@ -52,5 +54,5 @@ export default function useReportData(formValues) {
     [historyMetrics, currentCotReport, year, report]
   );
 
-  return [analyzedReport];
+  return [analyzedReport, isLoading, setIsLoading];
 }

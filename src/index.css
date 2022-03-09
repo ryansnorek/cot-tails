@@ -216,7 +216,6 @@ h1 {
   transform: rotate(-45deg) translate(0, -1px);
 }
 .show {
-  /* border-right: 1px solid black; */
 }
 #menu {
   position: absolute;
