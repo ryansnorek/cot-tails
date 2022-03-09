@@ -24,7 +24,7 @@ export default function Header({
                 <li>CoT Report</li>
               </a>
               <a href="#">
-                <li>Value</li>
+                <li>Stonks</li>
               </a>
               <a href="#">
                 <li>Info</li>

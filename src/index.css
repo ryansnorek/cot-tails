@@ -216,17 +216,17 @@ h1 {
   transform: rotate(-45deg) translate(0, -1px);
 }
 .show {
-  /* box-shadow: 0 0 20px #4f4f4f; */
-  border-right: 1px solid black;
+  /* border-right: 1px solid black; */
 }
 #menu {
   position: absolute;
-  width:100px;
+  width: 100px;
   height: 100vh;
   margin: -100px 0 0 -100%;
   padding: 50px;
   padding-top: 125px;
-  background: rgba(231, 228, 224, 0.8);
+  background: rgba(245, 242, 239, 0.8);
+  background-color: #ddd6cc;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
