@@ -1,12 +1,40 @@
+import { useState } from "react";
+
 export default function Header({
   formValues,
   handleChange,
   reportDate,
   scrolling,
 }) {
+  const [hide, setHide] = useState(true);
+  const handleClick = () => {
+    setHide(!hide);
+  }
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
+        <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" onClick={handleClick} />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu" className={!hide && "show"}>
+              <a href="#">
+                <li>CoT Report</li>
+              </a>
+              <a href="#">
+                <li>Value</li>
+              </a>
+              <a href="#">
+                <li>Info</li>
+              </a>
+              <a href="#">
+                <li>Contact</li>
+              </a>
+            </ul>
+          </div>
+        </nav>
         <div className="title">
           <img className="logo" src="../../logo.png" alt="logo" />
           <div className="inner">
