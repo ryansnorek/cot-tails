@@ -39,7 +39,7 @@ export default function Header({
           <img className="logo" src="../../logo.png" alt="logo" />
           <div className="inner">
             <h1>CoT-tails</h1>
-            <p className="date">as of {reportDate}</p>
+            <p className="date">{reportDate && `as of ${reportDate}`}</p>
           </div>
         </div>
         <input
