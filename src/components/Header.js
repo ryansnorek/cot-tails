@@ -7,8 +7,8 @@ export default function Header() {
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
-        <nav role="navigation">
-          <div id="menuToggle">
+        {/* <nav role="navigation">
+           <div id="menuToggle">
             <input type="checkbox" />
             <span></span>
             <span></span>
@@ -28,7 +28,7 @@ export default function Header() {
               </a>
             </ul>
           </div>
-        </nav>
+        </nav> */}
         <div className="title">
           <img className="logo" src="../../logo.png" alt="logo" />
           <div className="inner">
