@@ -16,7 +16,6 @@ This is a full-stack application that pulls data from the Commitment of Traders 
 #### Frontend
 - [ ] Custom hooks for report analysis
 - [ ] Algorithms for cleaning data 
-- [ ] Class based structure
 
 #### Backend
 - [ ] REST API deployed using Heroku
