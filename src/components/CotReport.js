@@ -1,13 +1,17 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import CotCard from "./CotCard";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { cotReportContext, lifeCycleContext, formsContext } from "../contexts";
+import { useCotContext } from "../contexts";
 
 function CotReport() {
-  const { analyzedReport, setReportDate } = useContext(cotReportContext);
-  const { isLoading, setIsLoading } = useContext(lifeCycleContext);
-  const { setScrolling } = useContext(formsContext);
+  const {
+    analyzedReport,
+    setReportDate,
+    isLoading,
+    setIsLoading,
+    setScrolling,
+  } = useCotContext();
 
   useEffect(() => {
     if (analyzedReport.length > 1) {

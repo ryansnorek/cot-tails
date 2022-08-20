@@ -1,9 +1,7 @@
-import { useContext } from "react";
-import { cotReportContext, formsContext } from "../contexts";
+import { useCotContext } from "../contexts";
 
 export default function Header() {
-  const { reportDate } = useContext(cotReportContext);
-  const { formValues, handleChange, scrolling } = useContext(formsContext);
+  const { reportDate, formValues, handleChange, scrolling } = useCotContext();
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
