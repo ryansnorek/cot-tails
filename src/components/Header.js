@@ -1,32 +1,63 @@
 import { useCotContext } from "../contexts";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+
+function SelectYear(props) {
+  return (
+    <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} size="small">
+      <InputLabel id="year-label">Comparing Year</InputLabel>
+      <Select
+        labelId="year-label"
+        value={props.value}
+        label="Year"
+        name="year"
+        onChange={props.handleChange}
+      >
+        <MenuItem value={2021}>2021</MenuItem>
+        <MenuItem value={2020}>2020</MenuItem>
+        <MenuItem value={2019}>2019</MenuItem>
+        <MenuItem value={2018}>2018</MenuItem>
+        <MenuItem value={2017}>2017</MenuItem>
+        <MenuItem value={2016}>2016</MenuItem>
+        <MenuItem value={2015}>2015</MenuItem>
+        <MenuItem value={2014}>2014</MenuItem>
+      </Select>
+    </FormControl>
+  );
+}
+
+function SelectDeviation(props) {
+    return (
+      <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }} size="small">
+        <InputLabel id="deviation-label">Deviation</InputLabel>
+        <Select
+          labelId="deviation-label"
+          value={props.value}
+          label="Deviation"
+          name="deviation"
+          onChange={props.handleChange}
+        >
+          <MenuItem value={0}>None</MenuItem>
+          <MenuItem value={200}>200%</MenuItem>
+          <MenuItem value={150}>150%</MenuItem>
+          <MenuItem value={125}>125%</MenuItem>
+          <MenuItem value={100}>100%</MenuItem>
+          <MenuItem value={75}>75%</MenuItem>
+          <MenuItem value={50}>50%</MenuItem>
+          <MenuItem value={25}>25%</MenuItem>
+        </Select>
+      </FormControl>
+    );
+  }
 
 export default function Header() {
   const { reportDate, formValues, handleChange, scrolling } = useCotContext();
+
   return (
     <header className={`top ${scrolling && "scroll-shadow"}`}>
       <div className="filters">
-        {/* <nav role="navigation">
-           <div id="menuToggle">
-            <input type="checkbox" />
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul id="menu">
-              <a href="#">
-                <li>CoT Report</li>
-              </a>
-              <a href="#">
-                <li>Stonks</li>
-              </a>
-              <a href="#">
-                <li>Info</li>
-              </a>
-              <a href="#">
-                <li>Contact</li>
-              </a>
-            </ul>
-          </div>
-        </nav> */}
         <div className="title">
           <img className="logo" src="../../logo.png" alt="logo" />
           <div className="inner">
@@ -43,42 +74,8 @@ export default function Header() {
           onChange={handleChange}
         />
         <div className="user-select">
-          <label>
-            Comparing
-            <select
-              name="year"
-              className="dropdown"
-              value={formValues.year}
-              onChange={handleChange}
-            >
-              <option value={2021}>2021</option>
-              <option value={2020}>2020</option>
-              <option value={2019}>2019</option>
-              <option value={2018}>2018</option>
-              <option value={2017}>2017</option>
-              <option value={2016}>2016</option>
-              <option value={2015}>2015</option>
-              <option value={2014}>2014</option>
-            </select>
-          </label>
-          <label>
-            Filtering
-            <select
-              name="deviation"
-              className="dropdown"
-              value={formValues.deviation}
-              onChange={handleChange}
-            >
-              <option value={0}>None</option>
-              <option value={200}>200%</option>
-              <option value={150}>150%</option>
-              <option value={125}>125%</option>
-              <option value={100}>100%</option>
-              <option value={75}>75%</option>
-              <option value={50}>50%</option>
-              <option value={25}>25%</option>
-            </select>
-          </label>
+          <SelectYear value={formValues.year} handleChange={handleChange} />
+          <SelectDeviation value={formValues.deviation} handleChange={handleChange} />
         </div>
       </div>
     </header>

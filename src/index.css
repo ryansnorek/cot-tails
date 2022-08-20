@@ -55,7 +55,6 @@ code {
   margin-left: 6px;
   font-size: 1rem;
   display: flex;
-  flex-direction: column;
   text-align: right;
 }
 select {
@@ -274,7 +273,6 @@ h1 {
     margin-top: 15vh;
   }
   .user-select {
-    flex-direction: row;
     justify-content: space-between;
     width: 90%;
   }

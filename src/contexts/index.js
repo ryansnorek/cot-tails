@@ -11,7 +11,7 @@ const CotContext = createContext();
 
 export const useCotContext = () => useContext(CotContext);
 
-export function CotProvider({children}) {
+export function CotProvider({ children }) {
   const [reportDate, setReportDate] = useState("");
   const [scrolling, setScrolling] = useState(false);
   const [formValues, setFormValues] = useState(initialFormValues);
